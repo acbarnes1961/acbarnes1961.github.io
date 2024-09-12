@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2 Electrostatic fields</title>
+<title>2 Electrostatic fields #</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">2 Electrostatic fields</h1>
+<h1 class="title">2 Electrostatic fields #</h1>
 </div>
 
 
@@ -140,15 +140,11 @@ window.Quarto = {
 <p>from which we can write using Gauss’s law (2.2),</p>
 <p><span class="math inline">\(\displaystyle\int_V (\nabla.\vec{E})d\tau=\int_V \frac{\rho}{\epsilon_0} d\tau\)</span></p>
 <p>As this holds for any volume we get the important result and the first of our Maxwell’s equations,</p>
-###
 <center>
 <span class="math inline">\(\displaystyle \nabla.\vec{E}=\frac{\rho(\vec{r})}{\epsilon_0}\;\; ...\;(2.3)\)</span>
-<center>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section"></h3>
+</center>
 <p>This is also known Gauss’s law in <span class="math inline">\(\textit{differential form}\)</span>. Note that this relates the divergence of the electric field at a <span class="math inline">\(\textit{point}\)</span> in space to the presence or not (in terms of the charge density) at that point in space. i.e If there is no charge at that point (i.e.&nbsp;<span class="math inline">\(\rho(\vec(\vec{r})=0)\)</span>, then the divergence is zero. You may like to check that this is true for the electric field in space away from a point charge by taking the divergence (try it in Cartesian and SphericalPolar coordinates).</p>
 </section>
-</center></center></section>
 <section id="the-electric-static-field-is-a-conservative-field" class="level2">
 <h2 class="anchored" data-anchor-id="the-electric-static-field-is-a-conservative-field">2.4 The electric (static) field is a conservative field</h2>
 <p>We have established how the electric field is related to the distribution of charge. Is there anything else that characterises the electric field? Let’s consider the following line integral (you should be familiar with these from you mathematics course),</p>
@@ -163,42 +159,27 @@ window.Quarto = {
 <p>Although, we’ve obtained this result for a single point charge, we can see, from the principle of superposition, that it will apply to the field from <span class="math inline">\(\textit{any}\)</span> distribution of charges. Hence, we can also see that <span class="math inline">\(\vec{E}\)</span> is a <span class="math inline">\(\textit{conservative}\)</span> field. You should have come across the description and definitions of conservative fields in your mathematics course. In that course you should also have come across Stoke’s theorem, that states for any vector <span class="math inline">\(\vec{X}\)</span></p>
 <p><span class="math inline">\(\displaystyle\oint\vec{X}.d\vec{l}=\oint_S(\nabla\times\vec{X}).d\vec{S}\)</span>,</p>
 <p>where <span class="math inline">\(\displaystyle\oint_S\)</span> means the surface integral over a closed surface. Applying this theorem to the electric field we find,</p>
-###
 <center>
 <span class="math inline">\(\displaystyle \nabla\times\vec{E}=0\;\; ...\;(2.4)\)</span>
-<center>
-<section id="section-1" class="level3">
-<h3 class="anchored" data-anchor-id="section-1"></h3>
+</center>
 <p>Indeed, if the curl of <span class="math inline">\(\textit{any}\)</span> field is zero, then the field is conservative. You will see that this result is close to , but not the same as, the second Maxwell equation we wrote down at the start. So it is imnportant to remember that this result applies specifically to <span class="math inline">\(\textit{electorstatic}\)</span> fields. We will come back later to the case of <span class="math inline">\(\textit{dynamic}\)</span> (time varying) fields.</p>
 </section>
-</center></center></section>
 <section id="summary-of-the-electrostatic-field." class="level2">
 <h2 class="anchored" data-anchor-id="summary-of-the-electrostatic-field.">2.5 Summary of the electrostatic field.</h2>
 <p>From the results in the previous sections we can summarise the governing equations for electrostatic fields as,</p>
-###
 <center>
 <span class="math inline">\(\displaystyle \nabla.\vec{E}=\frac{\rho(\vec{r})}{\epsilon_0}\)</span>
-<center>
-<section id="section-2" class="level3">
-<h3 class="anchored" data-anchor-id="section-2"></h3>
-###
+</center>
+<p>and</p>
 <center>
 <span class="math inline">\(\displaystyle \nabla\times\vec{E}=0\)</span>
-<center>
-</center></center></section>
-<section id="section-3" class="level3">
-<h3 class="anchored" data-anchor-id="section-3"></h3>
+</center>
 <p>These properties of the electrostatic field were found by careful experiments in th 19th century, but if we accept these two equations as the basis for electostatsics then Gauss’s law and tyhe general solution</p>
-###
 <center>
 <span class="math inline">\(\displaystyle\vec{E}(\vec{r})=\dfrac{1}{4\pi\epsilon_0}\int\rho(\vec{r'})\dfrac{(\vec{r}-\vec{r'})}{|\vec{r}-\vec{r'}|^3}d\tau'\)</span>.
-<center>
-</center></center></section>
-<section id="section-4" class="level3">
-<h3 class="anchored" data-anchor-id="section-4"></h3>
+</center>
 <p>From the general solution we can always find the electric field if we know the distribution of charges by solving this integral. Apart from simple cases (that you will see) it is generally not possible to find analytical results for <span class="math inline">\(\vec{E}\)</span>. However, with modern computers, it is relatively straightforward and feasible to calaculate the electric fields nuemrically in relatively short time by essentially this direct method. What is not so easy is to ask the question “What is the charge distribution I need to produce the electric field I require?”</p>
 </section>
-</center></center></section>
 
 </main>
 <!-- /main column -->
