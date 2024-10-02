@@ -95,15 +95,13 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="boundary-conditions">4.1 Boundary conditions</h2>
 <p>In our consideration of electric (and magnetic) fields an important consideration is what happens to the fields as we pass across boundaries of charge distribution (or current densities). I am going to state the results here. It is not difficult to show the results using Gauss’ law and the arguments are presented in Griffiths if you wish to see the details.</p>
 <p>In the most compact form we may write the boundary conditions for the electric field as,</p>
-###
 <center>
-$<em>{above}-</em>{below} = ;; … (4.1) $
+<span class="math inline">\(\displaystyle\vec{E} _{above}-\vec{E} _{below} = \frac{\sigma}{\epsilon_0} \hat{\vec{n}}\;\; ... (4.1)\)</span>
 </center>
 <p>where <span class="math inline">\(\hat{\vec{n}}\)</span> is the normal to the surface. In words, this says there is no change in <span class="math inline">\(\vec{E}\)</span> in the direction parallel to the surface, as I pass through the surface. On the other hand, the electric field perpendicular to surface goes through a discontinuous change (it changes sign) as you go through the surface.</p>
 <p>As you approach the surface the value of the potentials above and below the surface will converge to the be same at the surface, i.e</p>
 <p><span class="math inline">\(V_{above}=V_{below}\)</span></p>
 <p>but if we think of the gradient of the potential at the surface (<span class="math inline">\(\nabla V\)</span>) then this is equivalent to <span class="math inline">\(\vec{E}\)</span> at the surface so for potential we have,</p>
-###
 <center>
 <span class="math inline">\(\displaystyle \frac{\partial V_{above}}{\partial n}-\frac{\partial V_{below}}{\partial n}=-\frac{\sigma}{\epsilon_0} \;\; ... (4.2)\)</span>
 </center>
@@ -116,7 +114,7 @@ $<em>{above}-</em>{below} = ;; … (4.1) $
 <p>From your mechanics course in the first year you will have seen that the work done against a force (and hence a store of poetential energy) is given by,</p>
 <p><span class="math inline">\(\displaystyle W= \int_a^b \vec{F}.d\vec{l}\)</span></p>
 <p>If we apply this the result to the work needed to move a charge in an electric field we get,</p>
-<p>$W = Q_a^b .d=Q[V(b)-V(a)] = QV $</p>
+<p><span class="math inline">\(\displaystyle W = Q\int_a ^b \vec{E}.d\vec{l}=Q\left[V(b)-V(a)\right] = Q \Delta V\)</span></p>
 <p>Hence we can also use the potential difference to describe the work done to move a charge <span class="math inline">\(Q\)</span> in the field.</p>
 <p>So what is the energy stored in a distribution of point charges? Well we can imagine building up an assembly of charges by bringing each one suequentially in from infinity. There is no energy needed to bring the first charge in. For the second charge we need,</p>
 <p><span class="math inline">\(\displaystyle W_2 = \frac{q_1q_2}{4\pi\epsilon_0 r_{12}}\)</span>,</p>
@@ -128,32 +126,23 @@ $<em>{above}-</em>{below} = ;; … (4.1) $
 <p>Note, in the second expression we’ve allowed counting a pair twice (i.e.&nbsp;i-j and j-i) and adjusted by dividing the result by 2. Now we can write,</p>
 <p><span class="math inline">\(\displaystyle W=\frac{1}{2}\sum_{i=1}^n q_i\left(\sum_{j,j \ne i}^n \frac{1}{4\pi\epsilon_0}\frac{q_j}{r_{ij}}\right)\)</span></p>
 <p>or, finally,</p>
-###
 <center>
 <span class="math inline">\(\displaystyle W = \frac{1}{2} \sum_{i=1}^n q_i V(\vec{r_i}) \;\; ...(4.3)\)</span>
 </center>
 <p>Here we note that <span class="math inline">\(V(\vec{r_i})\)</span> is the potential from all the other charges at the point <span class="math inline">\(\vec{r_i}\)</span>, the position of <span class="math inline">\(q_i\)</span>.</p>
 <p>If we extend this argument to a continuous distribution of charge the 4.3 becomes</p>
-###
 <center>
 <span class="math inline">\(\displaystyle W = \frac{1}{2}\int_{charge\, volume}\rho V\;d\tau \;\; ... (4.4)\)</span>
-<center>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section"></h3>
+</center>
 <p>There is an interesting way to get the energy stored in terms of the electric field (see Griffiths section 2.4.3) to give,</p>
-###
 <center>
-$W = _{All,space} .;d ;; … (4.5) $
-<center>
-</center></center></section>
-<section id="section-1" class="level3">
-<h3 class="anchored" data-anchor-id="section-1"></h3>
+<span class="math inline">\(\displaystyle W = \frac{\epsilon_0}{2} \int_{All\,space} \vec{E}.\vec{E}\;d \tau \;\; ... (4.5)\)</span>
+</center>
 <p>or we can also write <span class="math inline">\(\vec{E}.\vec{E} = |E|^2\)</span> in the kernel of the integral.</p>
 <p>So we have two ways of thinking about the way the energy is stored, as the work done in assembling the charges or as associated with the field generated (the field energy) of the charges.</p>
 <p>IMPORTANT. We can’t use the superposition principle to sum energies. For example take two separate charge distributions for which we have calculated their energy as <span class="math inline">\(W_1=E_1^2\)</span> and <span class="math inline">\(W_2=E_2^2\)</span>. We might be tempted to say that bringing them together gives a total energy <span class="math inline">\(W_1+W_2\)</span>. Well there is clearly extra work done bringing them together, or in terms of the field, the new field is <span class="math inline">\(\vec{E}_{new}=\vec{E_1}+\vec{E_2}\)</span> so in 4.5 the kernel becomes <span class="math inline">\(E_{new}^2\)</span> which is not the same as <span class="math inline">\((\vec{E_1}+\vec{E_2}).(\vec{E_1}+\vec{E_2})=E_1^2+E_2^2 +2\vec{E_1}.\vec{E_2}\)</span> where the cross term is not zero.</p>
 <p><a href="index.html">Return to index</a></p>
 </section>
-</center></center></section>
 
 </main>
 <!-- /main column -->
