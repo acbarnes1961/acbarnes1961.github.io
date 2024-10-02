@@ -96,7 +96,7 @@ window.Quarto = {
 <section id="the-electrostatic-potential" class="level2">
 <h2 class="anchored" data-anchor-id="the-electrostatic-potential">3.1 The electrostatic potential</h2>
 <p>In section 2 we showed that <span class="math inline">\(\vec{E}\)</span> is a conservative field. Hence, we can apply the properties of such fields to define the electrostatic potential,</p>
-<p>$V()=- _O^.d $.</p>
+<p><span class="math inline">\(\displaystyle V(\vec{a}) = -\int_O ^\vec{a}\vec{E}.d\vec{l}\)</span>.</p>
 <p>Note, this should not be confused with potential energy (that we will discuss later). Note also the minus sign. We can also see that value of <span class="math inline">\(V(a)\)</span> will depend on our choice of origin <span class="math inline">\(O\)</span> - i.e.&nbsp;it is not really possible to define an <span class="math inline">\(\textit{absolute}\)</span> value of potential.</p>
 <p>However, the <span class="math inline">\(\textit{potential difference}\)</span> between two points <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> is of importance so let’s see what we mean by potential difference.</p>
 <p>We can write the potental diffirence between two points as follows,</p>
@@ -104,23 +104,19 @@ window.Quarto = {
 <p>or</p>
 <p><span class="math inline">\(\displaystyle V(\vec{b})-V(\vec{a}) = - \int_O^\vec{b} \vec{E}.d\vec{l}-\int_\vec{a}^O\vec{E}.d\vec{l}\)</span></p>
 <p>so that</p>
-###
 <center>
-$V()-V() = - _^.d;; … (3.1) $
-<center>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section"></h3>
+<span class="math inline">\(\displaystyle V(\vec{b})-V(\vec{a}) = - \int_{\vec{a}}^{\vec{b}}\vec{E}.d\vec{l}\;\; ... (3.1)\)</span>
+</center>
 <p>Now, we note, again remembering the property of conservative fields, that this line integral is independent of the path taken.</p>
 </section>
-</center></center></section>
 <section id="the-electric-field-expressed-as-the-gradient-of-a-scalar-potential" class="level2">
 <h2 class="anchored" data-anchor-id="the-electric-field-expressed-as-the-gradient-of-a-scalar-potential">3.2 The electric field expressed as the gradient of a scalar potential</h2>
 <p>In your mathematics course you will have seen seen the result,</p>
 <p><span class="math inline">\(\displaystyle \int_a^b \nabla \phi.d\vec{l}=-\int_a^b\vec{X}.d\vec{l}\)</span></p>
 <p>where <span class="math inline">\(\phi\)</span> is a scalar quantity (a scalar field) that gives rise to the vector quantity (vector field) <span class="math inline">\(\nabla\phi\)</span>. If we apply this result to the electrostatic field we obtain the result.</p>
-###
 <center>
-<p><span class="math inline">\(\displaystyle \vec{E}(\vec{r})=-\nabla V(\vec{r}) \;\; ... (3.2)\)</span> ###</p>
+<span class="math inline">\(\displaystyle \vec{E}(\vec{r})=-\nabla V(\vec{r}) \;\; ... (3.2)\)</span>
+</center>
 <section id="some-comments-about-the-scalar-potential." class="level3">
 <h3 class="anchored" data-anchor-id="some-comments-about-the-scalar-potential.">3.2.1 Some comments about the scalar potential.</h3>
 <p>Finding scalar fields (potentials) is easier than finding vector fields as we only have one component (the scalar) to find rather than the three components of a vector.</p>
@@ -128,53 +124,41 @@ $V()-V() = - _^.d;; … (3.1) $
 <p>only applies to conservative fields,</p>
 <p>there is no absolute definition of potential - we can only find differences in potential,</p>
 <p>we can define our position of zero potential in an arbitary way (as we can only need differences in potential) and</p>
-<p>potentials obey the principle of superposition (i.e.&nbsp;$V=V_1+V_2+V_3 + $).</p>
-<p>The S.I unit of potential is <span class="math inline">\(J\cdot C^{-1}\)</span> or <span class="math inline">\(N\cdot m\cdot C^{-1}\)</span> that is given the name Volt.</p>
+<p>potentials obey the principle of superposition (i.e.&nbsp;<span class="math inline">\(V=V_1+V_2+V_3 +\)</span>).</p>
+<p>The S.I. unit of potential is <span class="math inline">\(J\cdot C^{-1}\)</span> or <span class="math inline">\(N\cdot m\cdot C^{-1}\)</span> that is given the name Volt.</p>
 <p>You should be very familiar with the Volt, it is a unit people use everyday (think batteries, power supplies …). It maybe gives a hint as to the importance of the potential in electrical and electronic systems.</p>
 </section>
-</center></section>
+</section>
 <section id="poissons-equation." class="level2">
 <h2 class="anchored" data-anchor-id="poissons-equation.">3.2 Poisson’s equation.</h2>
 <p>With our knowledge of vector calculus we can very quickly find the relationship between the charge density and the potential</p>
 <p><span class="math inline">\(\displaystyle \nabla.\vec{E}=-\nabla. \nabla V = -\nabla^2V=\frac{\rho}{\epsilon_0}\)</span></p>
 <p>From this we find <span class="math inline">\(\textit{Poisson's equation}\)</span>,</p>
-###
 <center>
 <span class="math inline">\(\displaystyle \nabla^2V(\vec{r})=-\frac{\rho(\vec{r})}{\epsilon_0} \;\; ... (3.3)\)</span>
-<center>
-<section id="section-1" class="level3">
-<h3 class="anchored" data-anchor-id="section-1"></h3>
+</center>
 </section>
-</center></center></section>
 <section id="lapaces-equation" class="level2">
 <h2 class="anchored" data-anchor-id="lapaces-equation">3.3 Lapace’s equation</h2>
 <p>In regions of space where there are no charges (such that <span class="math inline">\(\rho(\vec{r})=0\)</span> Poisson’s equation reduces to,</p>
-###
 <center>
 <span class="math inline">\(\displaystyle \nabla^2 V(\vec{r})=0 \;\; ... (3.4)\)</span>
-<center>
-<section id="section-2" class="level3">
-<h3 class="anchored" data-anchor-id="section-2"></h3>
+</center>
 <p>that is known as <span class="math inline">\(\textit{Laplace's equation}\)</span>.</p>
 <p>It is perhaps not obvious why equations 3.3 and 3.4 are any more useful than calculating <span class="math inline">\(\vec{E}\)</span> directly from the charge distribution. i.e.&nbsp;we have just substituted a first order vector equation for a second order scalar equation. We will discuss potentials in more detail shortly but, you will see (or you have seen already), that in the world around us metals are equipotentals. We can change the potential of a metal component with, for example, a battery, so we can have two pieces of metal at different potentials if we connect them to different sides of our battery . These metal surfaces, at different potentials, provide the boundary conditions for equation 3.3. Therefore the potential determines the charge density and the electric field due to our metal surfaces. This is much more useful and practical and we’ll see why this works later.</p>
 </section>
-</center></center></section>
 <section id="the-general-solution-to-poissons-equation" class="level2">
 <h2 class="anchored" data-anchor-id="the-general-solution-to-poissons-equation">3.4 The general solution to Poisson’s equation</h2>
 <p>As we discussed in the previous section, it is the potential that is most easily controlled in the world around us. So, if we know the potential we can calculate the field without needing to know the charge density. Nevertheless, if we know the charge density distribution we can calculate the electric potential directly. The result for the general solution of Poisson’s equation is,</p>
-###
 <center>
 <span class="math inline">\(\displaystyle V(\vec{r})=\frac{1}{4\pi\epsilon_0}\int_V \frac{\rho(\vec{r'})}{|\vec{r}-\vec{r'}|}d\tau '\;\;...(3.5)\)</span>
-<center>
-<section id="section-3" class="level3">
-<h3 class="anchored" data-anchor-id="section-3"></h3>
+</center>
 <p>Although I haven’t formally proved this result, you should be able to see how it can be obtained from the potential of single point charge (that I leave you to show),</p>
 <p><span class="math inline">\(\displaystyle V(\vec{r})=\frac{1}{4\pi\epsilon_0}\frac{q}{r}\)</span></p>
 <p>and then using the principle of super position and spatial averaging to generate the integral over a continuous charge distribution. (The method is similar to the arguments we used for the electric field). Note also in the case of line (<span class="math inline">\(\lambda)\)</span>) and surface (<span class="math inline">\(\sigma\)</span>) charge densities we may use the equivalent results,</p>
 <p><span class="math inline">\(\displaystyle V(\vec{r})=\frac{1}{4\pi\epsilon_0}\int_{path}\frac{\lambda(\vec{r'})}{|\vec{r}-\vec{r'}|})dl'\)</span></p>
 <p>and</p>
 <p><span class="math inline">\(\displaystyle V(\vec{r})=\frac{1}{4\pi\epsilon_0}\int_{surface}\frac{\sigma(\vec{r'})}{|\vec{r}-\vec{r'}}da'\)</span></p>
-</section>
 <section id="electric-field-and-potential-summary" class="level3">
 <h3 class="anchored" data-anchor-id="electric-field-and-potential-summary">3.5 Electric field and potential summary</h3>
 <p>At this point we can summarise our knowledge of Electrostatics in the following triangle of relationships.</p>
@@ -184,7 +168,7 @@ $V()-V() = - _^.d;; … (3.1) $
 <p>With these and given, either <span class="math inline">\(\rho\)</span>, <span class="math inline">\(\vec{E}\)</span> or <span class="math inline">\(V\)</span> it is possible to derive the other two quantities. However, apart from simple cases, of which a few will be given in the lectures, it is not easy to solve the various integrals to find <span class="math inline">\(\vec{E}\)</span> or <span class="math inline">\(V\)</span>. For the electric field you will find you will either use Gauss’ law for highly symmetric charge distributions or the integral methods where it is possible to cast the solution in terms of an analytically solvable integral (again largely in cases of symmetrical charge distributions). If this is not possible you can revert to numerical methods. For the case of the electric potential there are a few other useful methods that we will explore in more detail later. Remember also you can apply the superposition principle.</p>
 <p><a href="index.html">Return to index</a></p>
 </section>
-</center></center></section>
+</section>
 
 </main>
 <!-- /main column -->
