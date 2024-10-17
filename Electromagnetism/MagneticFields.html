@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7. Magnetic Fields #</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="MagneticFields_files/libs/clipboard/clipboard.min.js"></script>
+<script src="MagneticFields_files/libs/quarto-html/quarto.js"></script>
+<script src="MagneticFields_files/libs/quarto-html/popper.min.js"></script>
+<script src="MagneticFields_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="MagneticFields_files/libs/quarto-html/anchor.min.js"></script>
+<link href="MagneticFields_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="MagneticFields_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="MagneticFields_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="MagneticFields_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="MagneticFields_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">7. Magnetic Fields #</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>So far we have covered the important mathematical properties of static electric fields - that is the electric fields arising from stationary charges. No we are going to look at static magnetic fields. From an early age, even before you studied physics, you were probably acquainted with magnets, in toys for example. But what exactly is a magnetic field and where does it come from?</p>
+<p>It is tempting to think of the magnetostatic field in the same way as an electrostatic field. You will often see it described in terms of ‘north’ and ‘south’ poles, principly by reference to the Earth’s magnetic field. However, this suggests the existence of what we might think of as magnetic charges. However, experience tells us that if we try to isolate these ‘charges’ by cutting a simple bar magnet in half say, we find we are never able to isolate, for example, a north pole.</p>
+<p>A better starting point is to consider experiments that were found to produce magnetic fields by passing electrical currents through wires, and, in analogy to Coulomb’s law, characterising the magnetic field in terms of the force on one current carrying wire by another current carrying wire. In doing this we need to think carefully about what we mean by a current in a wire. In our normal description of current in a metal we think of the free movement of charges (electrons) through the metal while <span class="math inline">\(\textit{keeping the overall charge on the wire zero}\)</span>.</p>
+<p>An alternative description might be in terms of a continuous (dense) charge carrying (i.e.&nbsp;electrons) beam in a vacuum. We refrain from talking about currents in this way for the moment for the following reason: although we can describe a current as the movement of charges in this beam, we note that any section of the beam would have an overall charge density as well and hence we would need to ask about the nature of the electric field from the beam as well. We could think a little more deeply and imagine that we are in a moving frame of reference in which these charges would appear stationary - i.e.&nbsp;what has happened to the magnetic field in this frame of reference! We can only really answer this questions when we start to apply the theory of special relativity (that you have just seen), but it turns out there is no contradiction apart from recognising electric and magnetic fields should really be considered together in terms of the electromagnetic field - something we will see later.</p>
+<p>So at the start we will give our classical description of magnetostatic fields as arising from charges moving in overall electrically neutral wires.</p>
+<section id="magnetic-field-lines" class="level2">
+<h2 class="anchored" data-anchor-id="magnetic-field-lines">7.1 Magnetic field lines</h2>
+<p>The simplest magnetic field that we might produce is from the ‘infinite’ straight wire carrying a current <span class="math inline">\(I\)</span>. What does the magnetic field look like? Well, the conclusion from work in the 19th century is that the field looks like this. We’ll not go into details about how they did this!</p>
+<center>
+<img src="images/MagneticFieldLines.jpg" alt="Magnetic field from a long straight wire" width="200">
+</center>
+<p>The first thing we note is that the field lines form continuous loops. They don’t seem to begin and end on any sources or sinks of a field. This is an important observation that we will return to. The second is the direction of the field lines follows a ‘right hand screw’ rule. (This is a convention from our definition of the direction of current).</p>
+</section>
+<section id="lorentz-force" class="level2">
+<h2 class="anchored" data-anchor-id="lorentz-force">7.2 Lorentz Force</h2>
+<p>If we place two current carrying wires parallel to each other we find that they exert a mutual force between them. We understand the origin of this force from the result of measurements of the motion of charged particles in magnetic fields for which the conclusion is,</p>
+<p><span class="math inline">\(\displaystyle\vec{F}=Q(\vec{v}\times\vec{B})\)</span></p>
+<p>You may well have seen this result before as <span class="math inline">\(F=Bqv\)</span> from which you used Flemming’s rules to work out the direction of the force. You may even have come across <span class="math inline">\(F=Bqv\sin(\theta)\)</span> for the case that <span class="math inline">\(B\)</span> was not perpendicular <span class="math inline">\(v\)</span> - you would have described the direction. When we use the cross product to describe the force we no longer need to remember whether we use the left or right hand rule, the direction is given by the axial vector of the cross product. The only thing we have to remember is the order <span class="math inline">\(\vec{v}\)</span> then <span class="math inline">\(\vec{B}\)</span> in the formula. After a time writing <span class="math inline">\(\vec{F}=Q(\vec{B}\times\vec{v})\)</span> just doesn’t look right (c.f. <span class="math inline">\(\vec{L}=\vec{r}\times\vec{p}\)</span> not <span class="math inline">\(\vec{L}=\vec{p}\times\vec{r}\)</span>). Note, this force law was determined (like Coulomb’s law) from careful observation - it is not derived from any higher principle.</p>
+<p>Hence in the presence of Electrostatic and Magnetostatic fields we can write the force on a small test charge as,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \vec{F}=Q(\vec{E}+\vec{v}\times\vec{B})\;\; ... (7.1)\)</span>
+</center>
+<p>.</p>
+<p>This is known as the <span class="math inline">\(\textit{Lorentz Force Law}\)</span> and together with Maxwell’s equations (that we are working towards) is all that we need for the description of classical electromagnetism.</p>
+</section>
+<section id="work-done-by-magnetic-fields" class="level2">
+<h2 class="anchored" data-anchor-id="work-done-by-magnetic-fields">7.3 Work done by magnetic fields</h2>
+<p>We saw in the case of the electric field that work had to be done on or by the charge to move it through the field. What happens as we move the charge through a magnetic field (we already know it will be deflected, not accelerated along its direction of motion). Well, work done (if no electric field is present) is given by,</p>
+<p><span class="math inline">\(\displaystyle dW = \vec{F}.d\vec{l}=Q(\vec{v}\times\vec{B})\cdot \vec{v}\,dt = 0\)</span></p>
+<p>Make sure you understand this result by thinking about the direction of <span class="math inline">\(\vec{v}\times\vec{B}\)</span> and <span class="math inline">\(\vec{v}\)</span> and what the result of the dot product between them will be.</p>
+<p>Hence, we find that <span class="math inline">\(\textit{Magnetic fields do no work}\)</span>. It is easy to forget this sometimes, but careful analysis in real cases reveals the true source of any work done as charges ae moved around. Griffiths gives some nice examples.</p>
+</section>
+<section id="current" class="level2">
+<h2 class="anchored" data-anchor-id="current">7.4 Current</h2>
+<p>As we saw above, our understanding of the origin of magnetic fields is due to the flow of currents. At the moment we can think of this in the conventional way in which the current is <span class="math inline">\(\textit{carried}\)</span> by a wire. Our wire is a metal in which currents can flow freely (we will consider the role of resistance later). The current is then defined as the amount of charge passing per unit time through a point in the wire and has the units of Coulombs<span class="math inline">\(\cdot\)</span>s<span class="math inline">\(^{-1}\)</span> or the Ampere (A). Note, in this scenario there is no overall charge on the wire, so although charges are moving there is no <span class="math inline">\(\vec{E}\)</span> field around the wire*. We now understand the current as due to electrons flowing in the wire.</p>
+<p>To start with, our wire is conceptually considered as infinitely thin (c.f. a point charge in electrostatics) with no physical size of its own.</p>
+<p>We can think of our current as a uniform line charge density moving through the wire with some speed <span class="math inline">\(v\)</span> so that our current is</p>
+<p><span class="math inline">\(\displaystyle I=\lambda v\)</span>.</p>
+<p>Now our wire does not have to be straight, it can have bends, loops etc. in it so we should realise that we need to not only specify the magnitude of the current (as above) but also its direction. This is easily achieved by changing the speed to velocity and hence,</p>
+<p><span class="math inline">\(\displaystyle \vec{I}=\lambda \vec{v}\)</span>.</p>
+<p>We can combine this result with the Lorectz force (in the absence of <span class="math inline">\(\vec{E}\)</span>) to find the magnetic force on a current carrying wire as,</p>
+<p><span class="math inline">\(\displaystyle \vec{F}_{magnetic}=\int (\vec{v}\times\vec{B})dq=\int(\vec{v}\times\vec{B})\lambda\; dl = \int (\vec{I}\times\vec{B}) dl\)</span></p>
+<p>More commonly this is written as</p>
+###
+<center>
+<span class="math inline">\(\displaystyle F_{magnetic}= I\int (d\vec{l}\times\vec{B}) \;\; ... (7.2)\)</span>
+</center>
+<p>where we consider <span class="math inline">\(I\)</span> as a scalar quantity but with the vectorial property of the current represented in the vector element <span class="math inline">\(d\vec{l}\)</span> along the wire.<br>
+N.B. Note the order of the vectors in the cross-product. If you keep to this convention you will not get the direction of the force incorrect.</p>
+<p>Exercise. At your school (at least for A level students) you will have come across the expression <span class="math inline">\(F=BIL\sin \theta\)</span> for the force on a current carrying wire in a magnetic field. Derive this result from equation (7.2).</p>
+<p>* As noted earlier, we will avoid for the moment, discussion of currents from,for example, beams of charged particles for which we need to worry about the electrostatic field as well.</p>
+</section>
+<section id="surface-and-volume-current-density." class="level2">
+<h2 class="anchored" data-anchor-id="surface-and-volume-current-density.">7.5 Surface and volume current density.</h2>
+<p>In our consideratio of electrostatics we found it more useful to talk about charge in terms of continuous charge, surface or line densities rather than in terms of individual charges. For the case of electric currents and our study of magnetic fields we find it useful to extend our idea of a current in an (infinitesimally small) wire to one of current flowing over a surface of finite size (sirface currents) or the current flowing through a surface in a solid section. i.e.&nbsp;</p>
+<center>
+<img src="images/currentdensity.jpg" alt="Surface and current densities" width="400">
+</center>
+<section id="surface-current-density" class="level3">
+<h3 class="anchored" data-anchor-id="surface-current-density">7.5.1 Surface current density</h3>
+<p>The figure shows our depiction of a current (depicted by the blue lines) flowing over a surface. We can see that the total current <span class="math inline">\(I\)</span> flowing over the surface may be depicted in terms of the current flowing through a line on the surface. The current <span class="math inline">\(dI\)</span> passing through any small element of this line <span class="math inline">\(dl_\perp\)</span> is then d<span class="math inline">\(\vec{I}=\vec{K}dl_\perp\)</span> where the vector direction of the current is perpendicular to the line. If we consider the velocity of the charges going through this line we can write this alternatively as</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \vec{K}=\sigma\vec{v}\;\; ...7.3\)</span>
+</center>
+<p>,</p>
+<p>where <span class="math inline">\(\vec{K}\)</span> is the surface current density.</p>
+<p>From this we can work out the total force on the surface in an external field <span class="math inline">\(\vec{B}\)</span> as,</p>
+<p><span class="math inline">\(\displaystyle \vec{F}_{magnetic}=\int(\vec{v}\times\vec{B})\sigma da = \int (\vec{K}\times\vec{B})da\)</span></p>
+</section>
+<section id="volume-current-density" class="level3">
+<h3 class="anchored" data-anchor-id="volume-current-density">7.5.2 Volume current density</h3>
+<p>In a similar way we can define a volume current density. In this case we consider a total current <span class="math inline">\(I\)</span> flowing through a cross-section of a wire for example. This cross section defines a surface. The current <span class="math inline">\(dI\)</span> passing through an infinitesimal area, <span class="math inline">\(da_\perp\)</span>, on the this surface, where the vector direction of the current is perpendicular to the surface is <span class="math inline">\(\displaystyle d \vec{I} = J\;da_\perp\)</span>, so we write,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \vec{J}= \rho \vec{v}\;\; ... 7.4\)</span>
+</center>
+<p>,</p>
+<p>where <span class="math inline">\(\vec{J}\)</span> is the volume current density.</p>
+<p>In this case we can write the force on the wire as,</p>
+<p><span class="math inline">\(\displaystyle \vec{F}_{magnetic} = \int(\vec{v}\times\vec{B})\rho d\tau = \int(\vec{J}\times\vec{B})d\tau\)</span></p>
+</section>
+</section>
+<section id="the-continuity-equation" class="level2">
+<h2 class="anchored" data-anchor-id="the-continuity-equation">7.6 The continuity equation</h2>
+<p>From our definition of the current density <span class="math inline">\(\vec{J}\)</span> we can write that the the current through a surface <span class="math inline">\(S\)</span> is,</p>
+<p><span class="math inline">\(\displaystyle I = \int_S J\;da_\perp = \int_S \vec{J}.d\vec{a}\)</span></p>
+<center>
+<img src="images/continuity.jpg" alt="Continuity equation" width="400">
+</center>
+<p>Now consider an enclosed volume, as shown in the figure. If current, doesn’t flow out of the ‘sides’ then we can consider the integration of <span class="math inline">\(\vec{J}\)</span> over the enclosinf surface shown. Hence,</p>
+<p><span class="math inline">\(\displaystyle \oint \vec{J}.d\vec{a} =\int_{Vol} \nabla\cdot\vec{J}d\tau\)</span>,</p>
+<p>the right-hand side of the equation comong from the divergence theorem wher <span class="math inline">\(Vol\)</span> is the volume enclosed. Given no current flows out of the sides (this does not have to be true but makes the argument easier to follow) the left handside corresponds to the net current (<span class="math inline">\(I_2-I_1\)</span>) leaving the enclose volume, or in terms of the charge, the net charge leaving the volume per unit time. Hence we can write,</p>
+<p><span class="math inline">\(\displaystyle \int_{Vol}(\nabla \cdot \vec{J})d\tau = -\frac{d}{dt}\int_{Vol}\rho d\tau=-\int_{Vol}\left(\frac{\partial \rho}{\partial t}\right) d \tau\)</span>.</p>
+<p>The minus comes about as the charge density decreases as charge flows out. From this we obtain the continuity equation,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla \cdot \vec{J}=-\frac{\partial \rho}{\partial t}\;\; ... 7.5\)</span>
+</center>
+<p>In words, if we consider a volume where currents are flowing then, if there is a net current into the volume, there must be a charge build up within that volume over time, and vice versa.</p>
+<p>In this section we are considering magnetostatics - a regime where the magnetic fields do not vary with time. Hence the currents flowing must be steady. In other words <span class="math inline">\(\partial \rho / \partial t = 0\)</span> and <span class="math inline">\(\partial \vec{J}/\partial t =0\)</span>. From this and the continuity equation we must have</p>
+<p><span class="math inline">\(\displaystyle \nabla \cdot \vec{J} = 0\)</span></p>
+<p>for steady currents.</p>
+<p><a href="index.html">Return to index</a></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
