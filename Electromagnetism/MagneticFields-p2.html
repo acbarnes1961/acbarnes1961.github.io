@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8. Properties of Magnetic Fields</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="MagneticFields-p2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="MagneticFields-p2_files/libs/quarto-html/quarto.js"></script>
+<script src="MagneticFields-p2_files/libs/quarto-html/popper.min.js"></script>
+<script src="MagneticFields-p2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="MagneticFields-p2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="MagneticFields-p2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="MagneticFields-p2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="MagneticFields-p2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="MagneticFields-p2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="MagneticFields-p2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">8. Properties of Magnetic Fields</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In the previous section we explained that magnetic fields originate from electric currents and we described the forces acting on charged particles in these fields. We then took a little time to see how we could define the currents more precisely in terms of surface or volume current densities and introduced the continuity equation. Finally we stated the condition <span class="math inline">\(\nabla \cdot \vec{J}=0\)</span> for steady currents required when considering magnetostatics. In this section we will explore further the properties of the magnetic field, in a similar way to our consideration of electrostatic fields, to show that likewise we can define <span class="math inline">\(\vec{B}\)</span> in terms of simple expressions involving divergence and curl.</p>
+<section id="the-biot-savart-law" class="level2">
+<h2 class="anchored" data-anchor-id="the-biot-savart-law">8.1 The Biot-Savart Law</h2>
+<p>In this section we must remember that we are considering the case of <span class="math inline">\(\textit magnetostatics\)</span> that means we have in particular, <span class="math inline">\(\frac{\partial \rho}{\partial t}=0\)</span> and <span class="math inline">\(\frac{\partial \vec{J}}{\partial t}=0\)</span>. We don’t really ask how we arrived at these condition. Note, in this consideration moving point charges are not considered as a current. With these constraints, the continuity equation gives <span class="math inline">\(\nabla \cdot \vec{J}=0\)</span>.</p>
+<p>The relationship between the source of the magnetic field and the currents was first discovered experimentally and described by what is known as the <span class="math inline">\(\textit Biot-Savart\)</span> law,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \vec{B}(\vec{r})=\frac{\mu_0}{4\pi}\int \frac{\vec{I}\times (\vec{r}-\vec{r'})}{|(\vec{r}-\vec{r'})|^3} dl' \;\; ...8.1\)</span>
+</center>
+<p>It plays a similar role to Coulomb’s law in electrostatics. We can also express it in terms of a scalar current and the vector element along our current carrying wire.</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \vec{B}(\vec{r})=\frac{\mu_0 I}{4\pi}\int \frac{\vec{dl'}\times (\vec{r}-\vec{r'})}{|(\vec{r}-\vec{r'})|^3} \;\; ...8.2\)</span>
+</center>
+<center>
+<img src="images/BiotSavart.jpg" alt="Biot-Savart Law" width="300">
+</center>
+<p>This integral has the same form as we have seen for the electric field from the charge distribution when we were considering electrostatics. The figure shows its interpretation. We are considering a point at position vector <span class="math inline">\(\vec{r}\)</span> from the origin. The kernel of the integral represents the field that is produced from a small vector element of current <span class="math inline">\(I d\vec{l}\)</span> at the poistion <span class="math inline">\(\vec{r'}\)</span> remembering that the position vector of the point P from the element is <span class="math inline">\(\vec{r}-\vec{r'}\)</span>. Note, in 3D there are three parts to this integral for each spatical direction. In general this integral will be quite difficult to solve analytically (you will see a few examples) but it can always be solved numerically. As in the case of the electrostatic equivalents, careful choice of the origin simplifies the solutions. Take a little time to understand the structure of this integral and then see how it is applied in the example cases.</p>
+<p>Note we have introduced a new physical constant, the permeability of free space, that is defined as,</p>
+<p><span class="math inline">\(\displaystyle \mu_0 = 4 \pi \times 10^{-7} N\cdot A^{-2}\)</span>.</p>
+<p>The magnetic field is measured in units of Tesla (<span class="math inline">\(T\)</span>) where,</p>
+<p><span class="math inline">\(\displaystyle 1T = 1 N\cdot A^{-1} \cdot m^{-1}\)</span>.</p>
+<p>Note, the Biot-Savart law implies the superposition principle for magnetic fields - the addition of any new current elements just adds linearly to the field.</p>
+<p>Exercise. Use the Biot-Savart law to show that the magnitude of the magnetic field at a distance <span class="math inline">\(s\)</span> from an infinite long straight wire is,</p>
+<p><span class="math inline">\(\displaystyle B=\frac{\mu_0 I}{2 \pi s}\)</span>.</p>
+<p>Use the Biot-Savart or the right hand rule to find the direction of the field and sketch the field lines.</p>
+</section>
+<section id="amperes-law." class="level2">
+<h2 class="anchored" data-anchor-id="amperes-law.">8.2 Ampere’s law.</h2>
+<p>If we take our result for the magnetic field from a long straight wire that we gave in section 8.1 then we find,</p>
+<p><span class="math inline">\(\displaystyle \oint \vec{B}.d\vec{l}=\oint \frac{\mu_0 I}{2 \pi s}dl=\frac{\mu_0 I}{2 \pi s}\oint dl= \mu_0 I\)</span>,</p>
+<p>where we have take a circular path of radius <span class="math inline">\(s\)</span> around the wire. This result may be generalised (the proof is in Griffith’s section 5.3.2) to show that any path that encloses a total current <span class="math inline">\(I_{enclosed}\)</span> gives rise to the result,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \oint \vec{B}.d\vec{l} =\mu_0 I_{enclosed} \;\;... 8.3\)</span>
+</center>
+<p>that is known as <span class="math inline">\(Amp\grave{e}re's\)</span> law. Note. the result of the integral is <span class="math inline">\(0\)</span> if no current is enclosed.</p>
+</section>
+<section id="the-curl-of-vecb" class="level2">
+<h2 class="anchored" data-anchor-id="the-curl-of-vecb">8.3 The curl of <span class="math inline">\(\vec{B}\)</span></h2>
+<p>We may express the current in the wire of Amp<span class="math inline">\(\grave{e}\)</span>re’s law in terms of the current density as,</p>
+<p><span class="math inline">\(\displaystyle I_{enclosed} = \int \vec{J} \cdot d\vec{a}\)</span>,</p>
+<p>where the integral is over a cross-section through the wire. Similar to what we did for the electrostatic case we can write, using Stoke’s law,</p>
+<p><span class="math inline">\(\displaystyle \oint \vec{B} \cdot d \vec{l}= \int (\nabla \times \vec{B})\cdot d\vec{a}\)</span>,</p>
+<p>remembering the surface integral is over any surface bounded by the loop of the closed line integral. From this and the result above we can write,</p>
+<p><span class="math inline">\(\displaystyle \mu_0 \int \vec{J}\cdot d\vec{a}=\int (\nabla \times \vec{B})\cdot d\vec{a}\)</span>,</p>
+<p>from which we derive the result,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla \times \vec{B} = \mu_0 \vec{J}\;\; ... 8.4\)</span>
+</center>
+<p>which is Amp<span class="math inline">\(\grave{e}\)</span>re’s law in differential form.</p>
+</section>
+<section id="the-divergence-of-vecb" class="level2">
+<h2 class="anchored" data-anchor-id="the-divergence-of-vecb">8.4 The divergence of <span class="math inline">\(\vec{B}\)</span></h2>
+<p>If we take the divergence of of <span class="math inline">\(\vec{B}\)</span> as given by the Biot-Savart law, we obtain (from the right-hand side), by application of vector identities (again the proof is given in Griffiths), the result,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla \cdot \vec{B} = 0 \;\; ... 8.5\)</span>
+</center>
+<p>.</p>
+<p>If we compare this to the result <span class="math inline">\(\nabla \cdot \vec{E}=\rho/\epsilon_0\)</span> this implies that we cannot find any regions in which there are ‘magnetic charges’, that is magnetic monopoles do not exist. From this we see our intepretation of magnetic fields in terms of north and south poles (as in a bar magnet) is false - magnetic fields only arise from circulating currents. We might also note that any attempt to cut a bar magnet in half to separate north and south poles only results the creation of two magnets (on the macroscopic scale).</p>
+<p>We call any vector field for which the divergence is zero a <span class="math inline">\(\textit solenoidal\)</span> field.</p>
+</section>
+<section id="maxwells-equations-for-the-case-of-static-fields" class="level2">
+<h2 class="anchored" data-anchor-id="maxwells-equations-for-the-case-of-static-fields">8.5 Maxwell’s equations for the case of static fields</h2>
+<p>We can now put together all we know about static electric and magnetic fields in four relations,</p>
+<p><span class="math inline">\(\displaystyle \nabla\cdot \vec{E}=\frac{\rho}{\epsilon_0}\)</span></p>
+<p><span class="math inline">\(\displaystyle \nabla \times \vec{E}=0\)</span></p>
+<p>$=0 $</p>
+<p><span class="math inline">\(\displaystyle \nabla \times \vec{B}=\mu_0 \vec{J}\)</span></p>
+<p>These are Maxwell’s equations for the case of static fields and we see there is ‘no’ coupling between <span class="math inline">\(\vec{E}\)</span> and <span class="math inline">\(\vec{B}\)</span> - they appear independently.</p>
+<p>These, along with the Lorentz force law,</p>
+<p><span class="math inline">\(\displaystyle \vec{F}=q(\vec{E}+\vec{v}\times\vec{B})\)</span></p>
+<p>define all the properties of the static fields.</p>
+<p>You might ask, “Is there an equivalent to electric potential for a magnetic field?” and “What happens if we have time-dependent electric and magnetic fields?”. We will consider the case of magnetic potentials in the next sub-section but we will leave the question about time dependent fields until later when we show the interelation between electric and magnetic fields and the unification of the two forces in terms of the electromagnetic field.</p>
+</section>
+<section id="the-magnetic-potential" class="level2">
+<h2 class="anchored" data-anchor-id="the-magnetic-potential">8.6 The magnetic potential</h2>
+<p>In the case of electrostatic fields we found the introduction of the electrostatic potential as both a useful and practical way to calculate/construct the electric field. It is therefore natural to ask if there is an equivalent function related to the magnetostatic field.</p>
+<p>Firstly, we see that as <span class="math inline">\(\nabla \times \vec{B}\)</span> is not zero we cannot assume that magnetic field is conservative. Another way of saying this is that if we take a closed path around a current then <span class="math inline">\(\oint \vec{B} \cdot d\vec{l} \neq 0\)</span>. However, it is possible to introduce a scalar magnetic potential, similar to the electrostatic potential, but it is only valid in regions of space where we might consider <span class="math inline">\(\oint \vec{B} \cdot d\vec{l} \neq 0\)</span>. In a way it is applicable when we introduce the device of north and south poles to describe the magnetic field (which we know is not formally correct). It can be a usfeul approach to solve some problems but practically we don’t have the equivalent of metals to define regions of ‘constant’ magnetic potential.</p>
+<p>From the practical point of view we also see that the natural way to produce magnetic fields is through the routing of current carrying wires (i.e.&nbsp;coils etc.). Hence, the easiest general way to calculate the field is from the Biot-Savart Law.</p>
+<p>It is possible to define a magnetic potential but in this case it needs to be a vector quantity (another vector field). This vector potential is generally given the symbol <span class="math inline">\(\vec{A}\)</span>. We introduce the vector potential in this course as it is an important quantity when we consider electrodynamics in quantum and relativistic theories (where it forms a four-vector with the electrostatic scalar potential). However, in the case of magnetostatics it has relatively little use and often seems to make the description of the field more complicated!</p>
+<p>The first point to note is that we always have <span class="math inline">\(\nabla \cdot \vec{B}=0\)</span> and, from our vector identities, the divergence of the curl of any vector is always zero (i.e.&nbsp;<span class="math inline">\(\nabla \cdot (\nabla \times \vec{X})=0\)</span> - you should have proved this in the first problem sheet). Hence there will be a vector field, <span class="math inline">\(\vec{A}\)</span>, that will be related to the magnetic field <span class="math inline">\(\vec{B}\)</span> as,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \vec{B}=\nabla \times \vec{A}\;\; ... 8.6\)</span>
+</center>
+<p>.</p>
+<p>So, we have defined <span class="math inline">\(\vec{A}\)</span> such that it gives <span class="math inline">\(\nabla \cdot \vec{B}=0\)</span>, but what about the curl of <span class="math inline">\(\vec{B}\)</span>. Well,</p>
+<p><span class="math inline">\(\displaystyle \nabla \times \vec{B} = \nabla \times(\nabla \times \vec{A}) = \nabla (\nabla \cdot \vec{A})- \nabla ^2 \vec{A}=\mu_0 \vec{J}\)</span>,</p>
+<p>where we have again used the vector identities you proved in the first problem sheet. Looking at this we see that, ignoring the <span class="math inline">\(\nabla (\nabla\cdot\vec{A})\)</span> term at the moment, we have,</p>
+<p><span class="math inline">\(-\nabla ^2 \vec{A}=\mu_0 \vec{J}\)</span>,</p>
+<p>a Laplacian term similar to the electrostatic case except it has three vector components. So, what about the <span class="math inline">\(\nabla \cdot \vec{A}\)</span> term? Well, the vector field <span class="math inline">\(\vec{A}\)</span> that gives rise to <span class="math inline">\(\vec{B}\)</span> is not unique. We might consider another vector potential <span class="math inline">\(\vec{A'}\)</span> where,</p>
+<p><span class="math inline">\(\displaystyle \vec{A'}(\vec{r})=\vec{A}(\vec{r})+\nabla \chi(\vec{r})\)</span>,</p>
+<p>where <span class="math inline">\(\chi(\vec{r})\)</span> is <span class="math inline">\(\textit any\)</span> arbitary scalar functon. From this we also find <span class="math inline">\(\vec{B}=\nabla \times \vec{A'}\)</span> as, as we have seen before, <span class="math inline">\(\nabla \times \nabla \chi \equiv 0\)</span>. Hence both <span class="math inline">\(\vec{A}\)</span> and <span class="math inline">\(\vec{A'}\)</span> can represent the same field <span class="math inline">\(\vec{B}\)</span>. This ability to add an arbitary gradient of a scalar function to <span class="math inline">\(\vec{A}\)</span> is similar to the principle that we used for the electrostatic potential where we saw that we could arbitarily choose our point of zero potential without changing the result <span class="math inline">\(\vec{E}=-\nabla V\)</span>.</p>
+<p>The change from <span class="math inline">\(\vec{A}\)</span> to <span class="math inline">\(\vec{A'}\)</span> is called a <span class="math inline">\(\textit gauge\: transformation\)</span> and we can exploit it to define our <span class="math inline">\(\vec{A}\)</span> with a gauge where <span class="math inline">\(\nabla \cdot \vec{A}=0\)</span> everywhere. This transformation is known as the Coulomb gauge for reasons that we will see shortly. It is not the only useful gauge transformation we might use. (For example, when considering electrodynamics (that we will not cover in this course) it is more useful to define a gauge, the Lorentz gauge, where <span class="math inline">\(\nabla \cdot \vec{A}\)</span> is not zero but related to a time dependent electric potential).</p>
+<p>Hence, in the case for magnetostatics it is convenient to write,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla^2 \vec{A} =-\mu_0 \vec{J} \;\; ...8.7\)</span>
+</center>
+<p>We see that each component of this equation may be written e.g.&nbsp;as</p>
+<p><span class="math inline">\(\displaystyle \nabla ^2 A_x = -\mu_0 J_x\)</span>,</p>
+<p>which apart from symbols and constants is the same as <span class="math inline">\(\nabla ^2 V = -\rho/\epsilon_0\)</span> that we saw for electrostatics. It for this reason we know this gauge transformation as the Coulomb gauge as, by direct analogy to <span class="math inline">\(V\)</span> and remembering we have three components we may write</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \vec{A}(\vec{r})=\frac{\mu_0}{4\pi}\int \frac{\vec{J}(\vec{r'})}{|\vec{r}-\vec{r'}|}d\tau '\;\; ... 8.8\)</span>
+</center>
+<p>We also find, in the case of currents and surface current densities,</p>
+<p><span class="math inline">\(\displaystyle \vec{A}=\frac{\mu_0}{4\pi}\int \frac{\vec{I}}{|\vec{r}-\vec{r'}|}dl'\)</span></p>
+<p>$=da’ $</p>
+<p>It is possible using various vector identities (but we will not show it here) to obtain the Biot-Savart law (8.1) from 8.8 by finding <span class="math inline">\(\nabla \times \vec{A}\)</span>. This also reveals the following useful intermediate result,</p>
+<p><span class="math inline">\(\displaystyle \vec{B}(\vec{r})= \frac{\mu_0}{4\pi}\int \frac{\vec{J}(\vec{r'})\times (\vec{r}-\vec{r'})}{|\vec{r}-\vec{r'}|^3}d\tau '\)</span></p>
+<p>It is easier to use 8.8 to calculate the magnetic vector potential from the current density (it avoids the cross product) but it still requires <span class="math inline">\(\nabla \times \vec{A}\)</span> to calculate <span class="math inline">\(\vec{B}\)</span>. Which method you use, the Biot-Savart Law or finding the vector potential and then taking the curl is a matter of choice.</p>
+</section>
+<section id="summary-of-magnetostatic-results" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-magnetostatic-results">8.7 Summary of magnetostatic results</h2>
+<p>As we did for the electrostatic case we can show the key relationships between <span class="math inline">\(\vec{B}\)</span>, <span class="math inline">\(\vec{J}\)</span> and <span class="math inline">\(\vec{A}\)</span> in the following schematic.</p>
+<center>
+<img src="images/BAJ.jpg" alt="Relation between B, A and J" width="400">
+</center>
+<p>As before, if we know any of <span class="math inline">\(\vec{B}\)</span>, <span class="math inline">\(\vec{A}\)</span> or <span class="math inline">\(\vec{J}\)</span> we can determine the other. Note, however to find an <span class="math inline">\(\vec{A}\)</span> from <span class="math inline">\(B\)</span> is not easy (we have to incorporate the gauge (in this case <span class="math inline">\(\nabla\cdot \vec{A}\)</span> ) into the calculation).</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
