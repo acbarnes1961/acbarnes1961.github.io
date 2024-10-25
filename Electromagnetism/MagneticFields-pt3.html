@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome to the Electromagnetism course notes</title>
+<title>9. Properties of Magnetic Fields.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,17 +23,46 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/quarto.js"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="index_files/libs/quarto-html/anchor.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="MagneticFields-pt3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="MagneticFields-pt3_files/libs/quarto-html/quarto.js"></script>
+<script src="MagneticFields-pt3_files/libs/quarto-html/popper.min.js"></script>
+<script src="MagneticFields-pt3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="MagneticFields-pt3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="MagneticFields-pt3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="MagneticFields-pt3_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="MagneticFields-pt3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="MagneticFields-pt3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="MagneticFields-pt3_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -45,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome to the Electromagnetism course notes</h1>
+<h1 class="title">9. Properties of Magnetic Fields.</h1>
 </div>
 
 
@@ -62,15 +91,60 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="Introduction.html">1. Introduction</a></p>
-<p><a href="ElectricFields.html">2. Electric Fields</a></p>
-<p><a href="ElectricPotential.html">3. Electric Potential</a></p>
-<p><a href="ElectrostaticsEnergy.html">4. Electrostatics, Boundary conditions and energy</a></p>
-<p><a href="Metals.html">5. Metals</a></p>
-<p><a href="CalcPotential.html">6. Calculating Potentials</a></p>
-<p><a href="MagneticFields.html">7. Magnetic Fields</a></p>
-<p><a href="MagneticFields-p2.html">8. Magnetic Fields - Biot-Savart law, Ampere’s law and vector potential </a></p>
-<p><a href="MagneticFields-pt3.html">9. Magnetic Fields - Boundary conditions and Magnetic dipoles </a></p>
+<p>The previous section has covered the key points about magnetostatic fields. In particular we have found the relationship between the current (more strictly the current density) and the resultant magnetic field, <span class="math inline">\(\vec{B}\)</span>. We also intoduced the vector potential <span class="math inline">\(\vec{A}\)</span> and showed its relationship to <span class="math inline">\(\vec{B}\)</span> and <span class="math inline">\(\vec{J}\)</span>. As in the case of electrostatics there are a few further results that are useful when calculating magnetic fields. We introduce them in this section.</p>
+<section id="boundary-conditions." class="level2">
+<h2 class="anchored" data-anchor-id="boundary-conditions.">9.1 Boundary conditions.</h2>
+<p>As in the case of electrostatics there are some important properties of the magnetic field at boundaries of current. In the case of magnetic fields we are particularly interested in the properties of <span class="math inline">\(\vec{B}\)</span> above and below a current carrying surface. In this case the appropriate quantity to use is the surface current density <span class="math inline">\(\vec{K}\)</span> that we described in section. 7.5.1. The boundary conditions are then,</p>
+<p><span class="math inline">\(\displaystyle \vec{B}_{above}-\vec{B}_{below} = \mu_0 (\vec{K} \times \hat{\vec{n}})\)</span></p>
+<p><span class="math inline">\(\displaystyle \vec{A}_{above}=\vec{A}_{below}\)</span></p>
+<p><span class="math inline">\(\displaystyle \frac{\partial \vec{A}_{above}}{\partial n}- \frac{\partial \vec{A}_{below}}{\partial n}=-\mu_0\vec{K}\)</span></p>
+<p>Exercise. What does the cross-product above imply about any change in <span class="math inline">\(\vec{B}\)</span> parallel to the surface current? What are the boundary conditions for <span class="math inline">\(\vec{B}\)</span> when we consider directions parallel and perpendicular to the vector <span class="math inline">\(\vec{K}\)</span>.</p>
+<p>For a detailed discussion of these boundary conditions see Griffiths section 5.4.2.</p>
+</section>
+<section id="multipole-expansions-and-the-magnetic-dipole." class="level2">
+<h2 class="anchored" data-anchor-id="multipole-expansions-and-the-magnetic-dipole.">9.2 Multipole expansions and the magnetic dipole.</h2>
+<p>As we saw for the case of electrostatics we might see that at large distances from the currents (closed loops) generating magnetic fields it should be possible to approximate the field in a series of higher moments. As we have no magnetic monopoles the first term in the series corresponds to the simple dipole. We will not look in detail at this expansion, formally we may write it, in terms of the vector potential, as,</p>
+<p><span class="math inline">\(\displaystyle \vec{A}(\vec{r})=\frac{\mu_0 I}{4\pi}\oint \frac{1}{|\vec{r}-\vec{r'}|} d\vec{l'}=\frac{\mu_0 I}{\ \pi}\sum_{n=0}^{\infty}\frac{1}{r^{n+1}}\oint (r')^n P_n(\cos \alpha)d\vec{l'}\)</span></p>
+<p>noting each successive decays faster as <span class="math inline">\(1/r^n\)</span>. We will not concern ourselves about how to do such an expansion.</p>
+<p>The first, non-zero, term of this expansion is the dipole term,</p>
+<p><span class="math inline">\(\displaystyle \vec{A}_{dip}(\vec{r})=\frac{\mu_0 I}{4\pi r^2}\oint r' \cos \alpha d\vec{l'}= \frac{\mu_0 I}{4\pi r^2}\oint (\hat{\vec{r}}\cdot \vec{r'})d\vec{l'}\)</span></p>
+<p>With the appropriate vector identity the vector on the right may be written as,</p>
+<p><span class="math inline">\(\displaystyle \oint(\hat{\vec{r}}\cdot \vec{r'})d\vec{l'}= - \hat{\vec{r}}\times\int_A d\vec{a'}\)</span></p>
+<p>that leads us to write the dipole field in terms of the vector potential as,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \vec{A}_{dipole}(\vec{r})=\frac{\mu_0 }{4 \pi}\frac{\vec{m}\times\hat{\vec{r}}}{r^2} \;\; ... 9.1\)</span>
+</center>
+<p>where we have defined the magnetic dipole moment, <span class="math inline">\(\vec{m}\)</span> as,</p>
+<p><span class="math inline">\(\displaystyle \vec{m}=I\int d\vec{a}\)</span></p>
+<p>This may be thought of as a small loop of wire of area <span class="math inline">\(a\)</span> carrying a current <span class="math inline">\(I\)</span>. The direction of the moment (given by <span class="math inline">\(\vec{a}\)</span>) depends on the direction in which <span class="math inline">\(I\)</span> flows around the loop. Note, that the result for the dipole field only applies (as in the case of the electric dipole) when we are far away from this current loop.</p>
+<p>If we assume that <span class="math inline">\(\vec{m}\)</span> is aligned along the <span class="math inline">\(z\)</span> axis in spherical polar coordinates we can write,</p>
+<p><span class="math inline">\(\displaystyle \vec{A}_{dipole}(\vec{r})=\frac{\mu_0}{4\pi} \frac{m \sin\theta}{r^2}\hat{\phi}\)</span></p>
+<p>so that,</p>
+<p><span class="math inline">\(\displaystyle \vec{B}_{dipole}=\nabla \times \vec{A}_{dipole}= \frac{\mu_0 m}{4\pi r^3}(2 \cos\theta\;\hat{\vec{r}}+\sin\theta\; \hat{\theta})\)</span>.</p>
+<p>This is exactly the same as the field from an electric dipole except we have changed the constant <span class="math inline">\(p/\epsilon_0\)</span> with the constant <span class="math inline">\(\mu_0 m\)</span>. The field lines look the same.</p>
+<p>Similarly we can write the field from a magnetic dipole in coordinate indpendent form as,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \vec{B}_{dipole} = \frac{\mu_0}{4\pi r^3}\left[3(\vec{m}.\hat{\vec{r}})\hat{\vec{r}}-\vec{m}\right]\;\; ...9.2\)</span>
+</center>
+<p>The magnetic dipole plays an important role in a first understanding of magnetic fields in matter that we will come to later on in these lectures.</p>
+</section>
+<section id="summary-of-magnetic-fields" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-magnetic-fields">9.3 Summary of magnetic fields</h2>
+<p>As we have considered magnetostatic fields we have noticed some similarities and differences from our results for electrostatic fields. In summary they are,</p>
+<ul>
+<li>There are no magnetic monopoles (<span class="math inline">\(\nabla \cdot \vec{B}=0\)</span>),</li>
+<li>magnetic fields do no work,</li>
+<li>magnetic fields are not conservative (<span class="math inline">\(\nabla \times \vec{B}=\mu_0 \vec{J})\)</span>,</li>
+<li>we can’t define a universal magnetic scalar potential but we can defines a vector potential <span class="math inline">\(\vec{A}\)</span>,</li>
+<li>for magnetostatic fields we chose <span class="math inline">\(\nabla\cdot\vec{A}=0\)</span> (the Coulomb gauge) to simplify our calculations.</li>
+</ul>
+</section>
+<section id="aside" class="level2">
+<h2 class="anchored" data-anchor-id="aside">9.4 Aside</h2>
+<p>You will note that we have not considered anything about the energy associated with the magnetic field. We leave this until we consider electrodynamics. Needless to say, as for the case of the electric field we can associate an energy with the magnetic field itself.</p>
+</section>
 
 </main>
 <!-- /main column -->
