@@ -91,10 +91,10 @@ window.Quarto = {
 </header>
 
 
-<p>As we have progressed through our discussion of electromagnetism we have seen the importance of the the results that we found for the divergence and curl of the electric and magnetic field. Then, in the last section we begain to see, through our discussion of Faraday’s law the connection between the electric field and a time varying magnetic field. However, are expressions for the the divergence and curl are still not quite complete. In the next few sections we will consider the symmetry we might expect in these equations - for example, we haven’t asked ourselves yet, what happens in the case of a time varying electric field. For the latter case there were no results from experimental measurements (we’ll see why later) that pointed to the solution.</p>
+<p>As we have progressed through our discussion of electromagnetism we have seen the importance of the the results that we found for the divergence and curl of the electric and magnetic field. Then, in the last section we begain to see, through our discussion of Faraday’s law the connection between the electric field and a time varying magnetic field. However, our expressions for the divergence and curl are still not quite complete. In the next few sections we will consider the symmetry we might expect in these equations - for example, we haven’t asked ourselves yet, what happens in the case of a time varying electric field. For the latter case there were no results from experimental measurements (we’ll see why later) that pointed to the solution.</p>
 <section id="induced-electric-fields" class="level2">
 <h2 class="anchored" data-anchor-id="induced-electric-fields">11.1 Induced electric fields</h2>
-<p>Let’s consider the case electromagnetic case where we are away from any free charges. In this case we would have,</p>
+<p>Let’s consider the electromagnetic case where we are away from any free charges. In this case we would have,</p>
 <p><span class="math inline">\(\displaystyle \nabla\cdot \vec{E}=0\)</span> ; <span class="math inline">\(\displaystyle \nabla \times \vec{E}=-\frac{\partial \vec{B}}{\partial t}\)</span></p>
 <p>We can compare this with the result we obtained for the magnetic field,</p>
 <p><span class="math inline">\(\displaystyle \nabla \cdot \vec{B}=0\)</span> ; <span class="math inline">\(\displaystyle \nabla \times \vec{B}=\mu_0 \vec{J}\)</span></p>
@@ -111,16 +111,16 @@ window.Quarto = {
 <center>
 <img src="images/MutualInductance.jpg" alt="Mutual Inductance" width="600">
 </center>
-<p>Consider the figure above. Suppose we have a current that is flowing in loop 1 and varying in time. This will generate a magnetic field in space, <span class="math inline">\(\vec{B_{1}\)</span> that is also varying in time. According to Faraday, this time varying field will induce an e.m.f. and hence a current in a nearby wire loop (loop 2). We express this in saying thaht the flux from coil 1 is linked to that in coil 2. This gives a simple description of the idea of mutual inductance (we could also consider a current in loop 2 generating an e.m.f. in loop 1).</p>
-<p>Let’s look at this in a little more detail. In terms of the current in loop 1, we can write, using the Boot-Savart law,</p>
+<p>Consider the figure above. Suppose we have a current that is flowing in loop 1 and varying in time. This will generate a magnetic field in space, <span class="math inline">\(\vec{B_1}\)</span>, that is also varying in time. According to Faraday, this time varying field will induce an e.m.f. and hence a current in a nearby wire loop (loop 2). We express this in saying that the flux from coil 1 is linked to that in coil 2. This gives a simple description of the idea of mutual inductance (we could also consider a current in loop 2 generating an e.m.f. in loop 1).</p>
+<p>Let’s look at this in a little more detail. In terms of the current in loop 1, we can write, using the Biot-Savart law,</p>
 <p><span class="math inline">\(\displaystyle \vec{B_1}=\frac{\mu_0}{4\pi}I_1 \oint \frac{d\vec{l_1}\times (\vec{r}-\vec{r'})}{|\vec{r}-\vec{r'}|^3}\)</span></p>
 <p>From this expression it would be difficult, in all but the simplest cases, to calculate the flux of <span class="math inline">\(\vec{B_1}\)</span> that passes through loop 2,</p>
 <p><span class="math inline">\(\displaystyle \Phi_2=\int \vec{B_1}\cdot d\vec{a}\)</span>.</p>
-<p>However, we can see that <span class="math inline">\(\Phi_2\)</span> will be proportional to <span class="math inline">\(I_1\)</span>, where the constant of proportionality depends on the geometrical arrangement of the coils. This constant of propotionality is known as the mutual inductance <span class="math inline">\(M_{21}\)</span> so that,</p>
+<p>However, we can see that <span class="math inline">\(\Phi_2\)</span> will be proportional to <span class="math inline">\(I_1\)</span>, where the constant of proportionality depends on the geometrical arrangement of the coils. This constant of proportionality is known as the mutual inductance <span class="math inline">\(M_{21}\)</span> so that,</p>
 <p><span class="math inline">\(\displaystyle \Phi_2 =M_{21}I_1\)</span></p>
 <p>Can we obtain an expression for <span class="math inline">\(M_{21}\)</span>? Well, with the help of our result for the magnetostatic potential (see section 8.6), we can write,</p>
 <p><span class="math inline">\(\displaystyle \Phi_2 = \int\vec{B_1}.d\vec{a_2}=\int(\nabla\times \vec{A_1})\cdot d\vec{a_2}=\oint \vec{A_1}\cdot d \vec{l_2}\)</span>,</p>
-<p>where we have used Stoke’s theorem to get the line integral. But we also had (again section 8.6),</p>
+<p>where we have used Stoke’s theorem to get the line integral. But we also had (again section 8.6 and using the Coulomb gauge),</p>
 <p><span class="math inline">\(\displaystyle \vec{A_1}=\frac{\mu_0}{4\pi}I_1 \oint \frac{d\vec{l_1}}{|\vec{r}-\vec{r'}|}\)</span>.</p>
 <p>From this we obtain,</p>
 <p><span class="math inline">\(\displaystyle \Phi_2 =I_1\;\frac{\mu_0}{4\pi}\oint \left(\oint \frac{d \vec{l_1}}{|\vec{r}-\vec{r'}|}\right).d\vec{l_2}\)</span>,</p>
@@ -129,8 +129,8 @@ window.Quarto = {
 <center>
 <span class="math inline">\(\displaystyle M_{21}=\frac{\mu_0}{4\pi} \oint \oint \frac{d\vec{l_1}\cdot d\vec{l_2}}{|\vec{r}-\vec{r'}|} \;\; ... 11.1\)</span>
 </center>
-<p>This is known as <span class="math inline">\(\textit{Neumann's forumla}\)</span>. <span class="math inline">\(M_{21}\)</span> is usually difficult to calculate from this expression but is ‘easy’ to measure. Two things that can be noted, - <span class="math inline">\(M_{21}\)</span> only depends on the geometry and shapes of the loops, - <span class="math inline">\(M_{21}=M_{12}\)</span> so the subscripts are normally dropped and the mutual inductance just known as <span class="math inline">\(M\)</span>.</p>
-<p>From Faraday’s law we find the e.m.f. generated in the second loo[ from varying current in the first loop is then,</p>
+<p>This is known as <span class="math inline">\(\textit{Neumann's formula}\)</span>. <span class="math inline">\(M_{21}\)</span> is usually difficult to calculate from this expression but is ‘easy’ to measure. Two things that can be noted, - <span class="math inline">\(M_{21}\)</span> only depends on the geometry and shapes of the loops, - <span class="math inline">\(M_{21}=M_{12}\)</span> so the subscripts are normally dropped and the mutual inductance just known as <span class="math inline">\(M\)</span>.</p>
+<p>From Faraday’s law we find the e.m.f. generated in the second loop from varying current in the first loop is,</p>
 ###
 <center>
 <span class="math inline">\(\displaystyle \epsilon_2 = -\frac{d\Phi_2}{dt}=-M\frac{dI_1}{dt} \;\; ... 11.2\)</span>
@@ -138,9 +138,9 @@ window.Quarto = {
 </section>
 <section id="self-inductance" class="level2">
 <h2 class="anchored" data-anchor-id="self-inductance">11.3 Self Inductance</h2>
-<p>If we consider a single wire loop carrying a current, we know, from Lenz’s law that any change in the current in the wire will cause an e.m.f. to oppoe the change of current. In an analogous way to our treatment of mutual inductance we now define the link between the current in the loop and the flux through it itself as the self inductance, such that,</p>
+<p>If we consider a single wire loop carrying a current, we know, from Lenz’s law that any change in the current in the wire will cause an e.m.f. to oppose the change of current. In an analogous way to our treatment of mutual inductance we now define the link between the current in the loop and the flux through it itself as the self inductance, such that,</p>
 <p><span class="math inline">\(\displaystyle \Phi_1 =L\;I_1\)</span></p>
-<p>from which we get the ‘back e.m.f.’ inthe loop from the changing current as,</p>
+<p>from which we get the ‘back e.m.f.’ in the loop from the changing current as,</p>
 ###
 <center>
 <span class="math inline">\(\displaystyle \epsilon=-\frac{d\Phi_1}{dt}=-L\frac{dI}{dt}\;\; ... 11.3\)</span>
