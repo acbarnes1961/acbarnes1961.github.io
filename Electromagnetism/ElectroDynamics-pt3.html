@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome to the Electromagnetism course notes</title>
+<title>12. Electrodynamics - the Displacement current.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,17 +23,46 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/quarto.js"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="index_files/libs/quarto-html/anchor.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="ElectroDynamics-pt3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ElectroDynamics-pt3_files/libs/quarto-html/quarto.js"></script>
+<script src="ElectroDynamics-pt3_files/libs/quarto-html/popper.min.js"></script>
+<script src="ElectroDynamics-pt3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="ElectroDynamics-pt3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="ElectroDynamics-pt3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ElectroDynamics-pt3_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="ElectroDynamics-pt3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="ElectroDynamics-pt3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="ElectroDynamics-pt3_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -45,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome to the Electromagnetism course notes</h1>
+<h1 class="title">12. Electrodynamics - the Displacement current.</h1>
 </div>
 
 
@@ -62,18 +91,100 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="Introduction.html">1. Introduction</a></p>
-<p><a href="ElectricFields.html">2. Electric Fields</a></p>
-<p><a href="ElectricPotential.html">3. Electric Potential</a></p>
-<p><a href="ElectrostaticsEnergy.html">4. Electrostatics, Boundary conditions and energy</a></p>
-<p><a href="Metals.html">5. Metals</a></p>
-<p><a href="CalcPotential.html">6. Calculating Potentials</a></p>
-<p><a href="MagneticFields.html">7. Magnetic Fields</a></p>
-<p><a href="MagneticFields-p2.html">8. Magnetic Fields - Biot-Savart law, Ampere’s law and vector potential </a></p>
-<p><a href="MagneticFields-pt3.html">9. Magnetic Fields - Boundary conditions and Magnetic dipoles </a></p>
-<p><a href="ElectroDynamics.html">10. Electrodynamics - Faradays’s Law </a></p>
-<p><a href="ElectroDynamics-pt2.html">11. Electrodynamics - Inductance </a></p>
-<p><a href="ElectroDynamics-pt3.html">12. Displacement current and Maxwell’s equations </a></p>
+<section id="inconsistencies-in-our-equations-so-far" class="level2">
+<h2 class="anchored" data-anchor-id="inconsistencies-in-our-equations-so-far">12.1 Inconsistencies in our equations so far</h2>
+<p>In the last section we saw how magnetic fields that varied in time gave rise to electric fields and we saw how that modified our result for the curl of the electric field. So, so far we have,</p>
+<p><span class="math inline">\(\displaystyle \nabla \cdot\vec{E}=\frac{\rho}{\epsilon_0}\)</span></p>
+<p><span class="math inline">\(\displaystyle \nabla\cdot \vec{B}=0\)</span></p>
+<p><span class="math inline">\(\displaystyle \nabla\times\vec{E}=-\frac{\partial \vec{B}}{\partial t}\)</span></p>
+<p><span class="math inline">\(\displaystyle \nabla \times \vec{B}=\mu_0 \vec{J}\)</span></p>
+<p>These equations are in essence the conclusion from the experiments of Ampere, Faraday etc. but are they complete? If something is missing why wasn’t an experimental effect observed.</p>
+<p>Firstly for symmetry or aesthetic reasons you might wonder why there isn’t an effect from time dependent electric fields (<span class="math inline">\(\displaystyle \frac{\partial \vec{E}}{\partial t}\)</span>) in a similar way to <span class="math inline">\(\displaystyle \frac{\partial \vec{B}}{\partial t}\)</span>. But is this all?</p>
+<p>It was Maxwell who looked at these equations theoretically and observed an inconsistency. So we can try and follow his reassoning. So first, let’s ask, what is <span class="math inline">\(\nabla \cdot (\nabla \times \vec{E})\)</span>? Well, from what we have,</p>
+<p><span class="math inline">\(\displaystyle \nabla \cdot (\nabla \times \vec{E})=\nabla \cdot \left(-\frac{\partial \vec{B}}{\partial t}\right)= -\frac{\partial }{\partial t} (\nabla \cdot\vec{B})\)</span></p>
+<p>Well we know from our vector identities that the divergence of a curl is always zero. But as <span class="math inline">\(\nabla \cdot \vec{B}=0\)</span> this doesn’t show any inconsistency. Bow what about <span class="math inline">\(\nabla \cdot(\nabla \times \vec{B})\)</span>? Well, this should also be zero but we have,</p>
+<p><span class="math inline">\(\displaystyle \nabla \cdot (\nabla \times \vec{B})=\mu_0 (\nabla \cdot \vec{J})\)</span></p>
+<p>Now, although we saw $ =0 $ for the case of steady currents, it is not true for time dependent currents. So, as the left-hand side of our equation must be zero, it suggests there is something missing in our result for <span class="math inline">\(\nabla \times \vec{B}\)</span>. What might be missing?</p>
+<p>Well, let’s look at the figure below,</p>
+<center>
+<img src="images/DisplacementCurrent.jpg" alt="Maxwell's displacement current" width="500">
+</center>
+<p>The figure shows a battery connected to a capacitor. In its final state the circuit would produce steady net charges on the plates of the capacitor - its an electrostatic system. Now, let’s ask what if we ask about how the capacitor becomes charged. To do this a current must flow in the wires to the capacitor. We can also work out (do it as an exercise) that the current, decays exponentially from its initial value until the capacitor becomes fully charged. That is the current in the wires is not steady. Nevertheless, this current will produce a magnetic field that we know, from Amperes law should have the property <span class="math inline">\(\displaystyle \oint \vec{B}\cdot d\vec{l} =\mu_0 I_{enclosed}\)</span>. Hopefully you will now see a difficulty. If my closed integral goes ‘around’ the current carrying wire, everything is fine. If I take my loop close to the capacitor plates (the small brown circle) it suggests there is a <span class="math inline">\(\vec{B}\)</span> field present. However, if I shift by integration loop so that it is just inside the capacitor, Ampere’s law would suggest the field is zero! Do I really get a step change? Our arguments before also said the path I took in Ampere’s laws didn’t matter either. In other words something is not right!</p>
+<p>To solve the problem we need to go back to our discussion of <span class="math inline">\(\nabla \cdot \vec{J}\)</span> in terms of the continuity equation (see section 7.6). What happens when we have a time dependent charge distribution (i.e.&nbsp;the capacitor above charging)? Well,</p>
+<p><span class="math inline">\(\displaystyle \nabla \cdot \vec{J} = -\frac{\partial \rho}{\partial t}=-\frac{\partial}{\partial t}\left( \epsilon_0 \nabla \cdot \vec{E} \right)=-\nabla \cdot \left( \epsilon_0 \frac{\partial \vec{E}}{\partial t}\right)\)</span></p>
+<p>where we’ve used <span class="math inline">\(\displaystyle \nabla \cdot \vec{E}=\frac{\rho}{\epsilon_0}\)</span>.</p>
+<p>The right had term suggests that time varying electric fields also seem to behave like currents! So, to be complete, our expression for <span class="math inline">\(\nabla \times \vec{B}\)</span> also needs to include this terem. From this, we arrive at the final result,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla \times \vec {B}=\mu_0 \vec{J}+\mu_0 \epsilon_0 \frac{\partial \vec{E}}{\partial t}\;\; ... 12.1\)</span>
+</center>
+<p>.</p>
+<p>This solves our inconsistency. Hoe does this apply to the figure above? Well, if we use an imaginary ‘curl meter’ we see that it will register a value if we are in the current carrying wire, but, if we are in the space between the capacitor plates it sees the time dependent <span class="math inline">\(\vec{E}\)</span> filed that seems to behave as a current.</p>
+<p>Because of its current like behaviour this extra term is known as the <span class="math inline">\(\textit Displacement current\)</span> (or Maxwell’s displacement current), <span class="math inline">\(\vec{J}_d\)</span> where,</p>
+<p><span class="math inline">\(\displaystyle \vec{J}_d=\epsilon_0 \frac{\partial \vec{E}}{\partial t}\)</span>.</p>
+<p>With this result we can modify Ampere’s law as,</p>
+<p><span class="math inline">\(\displaystyle \oint \vec{B}\cdot d\vec{l}=\mu_0 I_{enclosed}+\mu_0\epsilon_0\int \left( \frac{\partial \vec{E}}{\partial t}\right) \cdot d\vec{a}\)</span></p>
+<p>for the case of time dependent fields.</p>
+<p>You might ask why, if we easily saw the effects of <span class="math inline">\(\partial \vec{B}/ \partial t\)</span>, in experiments, whe we didn’t see the effects of <span class="math inline">\(\partial \vec{E} / \partial t\)</span>? Well, <span class="math inline">\(\mu_0 \epsilon_0\)</span> is a very small number! However, with very careful experiments it is possible to observe this effect.</p>
+</section>
+<section id="maxwells-equations" class="level2">
+<h2 class="anchored" data-anchor-id="maxwells-equations">12.2 Maxwell’s equations</h2>
+<p>So we’ve now arrived at our destination and we can write the complete set of equations (Maxwell’s equations) for electromagnetism as,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla \cdot \vec{E}=\frac{\rho}{\epsilon_0}\)</span>
+</center>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla \times \vec{E}=-\frac{\partial \vec{B}}{\partial t}\)</span>
+</center>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla \cdot \vec{B}=0\)</span>
+</center>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla \times \vec{B}=\mu_0 \vec{J}+\mu_0\epsilon_0\frac{\partial \vec{E}}{\partial t}=0\)</span>
+</center>
+<p>Some people like to write these by keeping the fields and their sources on either side of the equations, e.g.</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla \cdot \vec{E}=\frac{\rho}{\epsilon_0}\)</span>
+</center>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla \times \vec{E}+\frac{\partial \vec{B}}{\partial t}=0\)</span>
+</center>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla \cdot \vec{B}=0\)</span>
+</center>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla \times \vec{B}-\mu_0\epsilon_0\frac{\partial \vec{E}}{\partial t}=\mu_0 \vec{J}\)</span>
+</center>
+<p>it’s up to you.</p>
+<p>Along with the Lorentz force,</p>
+###
+<center>
+<p><span class="math inline">\(\displaystyle \vec{F}=q(\vec{E}+\vec{v}\times\vec{B})\)</span></p>
+<p>these define the equations of classical electromagnetism.</p>
+</center></section>
+<section id="where-do-you-go-from-here-with-maxwells-equations" class="level2">
+<h2 class="anchored" data-anchor-id="where-do-you-go-from-here-with-maxwells-equations">12.3 Where do you go from here with Maxwell’s equations ?</h2>
+<p>Maxwell’s equations lead to a remarkably rich set of phenomena. They let us understand how the electromagnetic force is transmitted over a distance, the time it takes and how the energy is transported. It is beyond this course to go any further. However, there is one more thing I’d like to show you that comes out reasonably straight forwardly and it is this.</p>
+<p>Suppose we are in a region where there are no free charges (<span class="math inline">\(\rho=0\)</span>) or currents (<span class="math inline">\(\vec{J}\)</span>. What happens if we look at the curl of <span class="math inline">\(\nabla \times \ \vec{E}\)</span> and <span class="math inline">\(\nabla \times \vec{B}\)</span>? (Remember how we looked at the divergence to get the Displacement current).</p>
+<p><span class="math inline">\(\displaystyle \nabla \times (\nabla \times \vec{E}) = \nabla (\nabla \cdot \vec{E})-\nabla ^2 \vec{E}\)</span></p>
+<p>which is just the result of a vector identity you showed in the first problems class. Now if <span class="math inline">\(\rho = 0\)</span> (so <span class="math inline">\(\nabla \cdot\ \vec{E}=0\)</span>) in this region of space, this gives,</p>
+<p><span class="math inline">\(\displaystyle \nabla \times (\nabla \times \vec{E}) = \nabla (\nabla \cdot \vec{E})-\nabla ^2 \vec{E} = -\nabla^ 2\vec{E}\)</span>.</p>
+<p>But we also have,</p>
+<p><span class="math inline">\(\displaystyle \nabla \times (\nabla \times \vec{E}) =\nabla \times -\frac{\partial \vec{B}}{\partial t}=-\frac{\partial}{\partial t}(\nabla \times \vec{B})\)</span></p>
+<p>but, if <span class="math inline">\(\vec{J}=0\)</span> (in this region of space), we can substitute for <span class="math inline">\(\nabla \times \vec{B}\)</span> to get,</p>
+<p><span class="math inline">\(\displaystyle \nabla^2 \vec{E}=\mu_0\epsilon_0\frac{\partial ^2 \vec{E}}{\partial t^2}\)</span></p>
+<p>Exercise, show how you can get a similar result for the <span class="math inline">\(\vec{B}\)</span> field.</p>
+<p>You should recognise this as the wave equation for the three components of <span class="math inline">\(\vec{E}\)</span>. That is Maxwell’s equations predict electromagnetic waves. I’ll leave you to work out their velocity and its significance.</p>
+<p><a href="index.html">Return to index</a></p>
+</section>
 
 </main>
 <!-- /main column -->
