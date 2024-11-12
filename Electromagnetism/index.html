@@ -34,6 +34,35 @@ ul.task-list li input[type="checkbox"] {
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -75,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="ElectroDynamics-pt2.html">11. Electrodynamics - Inductance </a></p>
 <p><a href="ElectroDynamics-pt3.html">12. Displacement current and Maxwell’s equations </a></p>
 <p><a href="FieldsInMatter.html">13. Fields in Matter - the Displacement field</a></p>
-<p><a href="FieldsInMatter-pt2.html">13. Fields in Matter - the auxiliary field $ and Maxwell’s equations in matter</a></p>
+<p><a href="FieldsInMatter-pt2.html">13. Fields in Matter - the auxiliary field <span class="math inline">\(\vec{H}\)</span> and Maxwell’s equations in matter</a></p>
 
 </main>
 <!-- /main column -->
