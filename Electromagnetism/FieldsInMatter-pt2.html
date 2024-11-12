@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>13.8 The auxiliary field \vec{H}</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="FieldsInMatter-pt2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="FieldsInMatter-pt2_files/libs/quarto-html/quarto.js"></script>
+<script src="FieldsInMatter-pt2_files/libs/quarto-html/popper.min.js"></script>
+<script src="FieldsInMatter-pt2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="FieldsInMatter-pt2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="FieldsInMatter-pt2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="FieldsInMatter-pt2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="FieldsInMatter-pt2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="FieldsInMatter-pt2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="FieldsInMatter-pt2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">13.8 The auxiliary field <span class="math inline">\(\vec{H}\)</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In the previous sections we showed how the formation of electric dipoles in matter (either permanent molecular dipoles or induced dipoles) modified the electric field by introducing the idea of bound charges that modified the electric field. In order to avoid finding these bound charges each time we use the <span class="math inline">\(\vec{D}\)</span> field as a device for handling the electric fields in matter. We considered particularly the case of linear materials. What happens in the case of magnetic fields in materials? The origin of magnetism in materials is buried deep in the physics and quantum mechanics of the atom - namely in the spin and orbital angular momentum of the electrons. In a simple description we can image the electrons as producing tiny magnetic dipoles as if they are tiny current loops in the atom. We won’t go into a detailed description here but consider three different types of magnetic material:</p>
+<ul>
+<li>paramagnets in which these dipoles tend to line up in the external field,</li>
+<li>diamagnets in which the dipoles tend to line up opposite to the external field,</li>
+<li>ferromagnets in which the dipoles are aligned and remain aligned even in the absence of an external field.</li>
+</ul>
+<p>More detail and desrciption of the a microscopic origin of these materials may be found in Griffiths. We will just assume all three are possible.</p>
+<p>You are familiar with ferromagnets. A typical bar magnet shows this behaviour. In it the magnetic dipoles on the atoms (say for example Iron) can be aligned in an external magnetic field and remain when the field is removed. We are used to saying the Iron is magnetised.</p>
+<p>In the same way as we defined Polarization we can define Magnetisation as,</p>
+<p><span class="math inline">\(\vec{M}\)</span> is the magnetic moment per unit volume arising from the alignmment of the magnetic dipoles.</p>
+<p>The effect of these aligned dipoles is to produce a macroscopic dipole - a bar magnet is an example (if the dipole alignment is permanent). The field lines from this magnet and a macroscopic electric dipole are the same that leads to interpretation of magnets in terms of north and south poles. It is possible to solve magnetic problems with the idea of these poles, it is known as the Gilbert model, but deep down we must talk about current loops to properly describe magnetization.</p>
+<section id="bound-currents." class="level2">
+<h2 class="anchored" data-anchor-id="bound-currents.">13.9 Bound currents.</h2>
+<p>A sensible point to start our description of magnetic materials is hence in terms of the additive effect of many microscopic magnetic dipoles. As we did with the Polarization we start with our basic description of the magnetic dipole in terms of the magnetic vector potential, i.e.&nbsp;</p>
+<p><span class="math inline">\(\displaystyle \vec{A}(\vec{r})=\frac{\mu_0}{4\pi}\frac{\vec{m}\times (\vec{r}-\vec{r'})}{(|\vec{r}-\vec{r'}|^3)} =\frac{\mu_0}{4\pi}\frac{\vec{m}\times \hat{\vec{r''}}}{r''^2}\)</span></p>
+<p>where we have written <span class="math inline">\(\vec{r''}=\vec{r}-\vec{r'}\)</span>.</p>
+<p>now if we write <span class="math inline">\(\vec{m}=\vec{M}d\tau'\)</span> (the moment from a small volume <span class="math inline">\(d\tau'\)</span> we can write the total vector potential (by superposition)</p>
+<p><span class="math inline">\(\displaystyle \vec{A}(\vec{r})=\frac{\mu_0}{4\pi}\int_{Vol}\frac{\vec{M}(\vec{r'})\times \hat{\vec{r''}}}{r''^2}d\tau'\)</span></p>
+<p>Again writing,</p>
+<p><span class="math inline">\(\displaystyle \nabla'\left(\frac{1}{r''}\right)=\frac{\hat{\vec{r''}}}{r''^2}\)</span></p>
+<p>so,</p>
+<p><span class="math inline">\(\displaystyle \vec{A}(\vec{r})=\frac{\mu_0}{4\pi}\int \left[ \vec{M}(\vec{r'})\times \nabla'\left(\frac{1}{r''}\right)\right]d\tau'\)</span></p>
+<p>integrating by parts and applying Stoke’s law we get,</p>
+<p><span class="math inline">\(\displaystyle \vec{A}(\vec{r})=\frac{\mu_0}{4\pi}\left[\int\frac{1}{r''}\left(\nabla'\times\vec{M}(\vec{r'})\right)d\tau'-\int\nabla '\times \left[\frac{\vec{M}(\vec{r'})}{r''}\right]d\tau'\right]\)</span></p>
+<p><span class="math inline">\(\displaystyle \vec{A}(\vec{r})=\frac{\mu_0}{4\pi}\left[\int\frac{1}{r''}(\nabla'\times\vec{M}(\vec{r'}))d\tau'+\oint\frac{1}{r''}(\vec{M}(\vec{r'})\times d\vec{a'})\right]\)</span></p>
+<p>or if we write,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \vec{J}_b=\nabla\times\vec{M}\)</span>
+</center>
+<blockquote class="blockquote">
+
+</blockquote>
+<p>and</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \vec{K}_b=\vec{M}\times\hat{\vec{n}}\)</span>
+</center>
+<p><span class="math inline">\(\displaystyle \vec{A}(\vec{r})=\frac{\mu+0}{4\pi}\int_{Vol} \frac{\vec{J}_b(\vec{r'})}{r''}d\tau'+\frac{\mu_0}{4\pi}\oint \frac{\vec{K}_b(\vec{r'})}{r''}da'\)</span></p>
+<p><span class="math inline">\(\vec{J}_b\)</span> and <span class="math inline">\(\vec{K}_b\)</span> play a similar role to the bound surface and volume charge densities we found for dielectrics. We will show how we might visualise these in the lectures but our aim, as in the case of <span class="math inline">\(\rho_b\)</span> and <span class="math inline">\(\sigma_b\)</span> is to avoid the need to calculate them to determine <span class="math inline">\(\vec{B}\)</span> (which needs to be calculated from both these currents and any free currents that are circulating in our system).</p>
+</section>
+<section id="the-auxiliary-field-vech-or-just-the-vech-field" class="level2">
+<h2 class="anchored" data-anchor-id="the-auxiliary-field-vech-or-just-the-vech-field">13.10 The auxiliary field <span class="math inline">\(\vec{H}\)</span>( or just the <span class="math inline">\(\vec{H}\)</span> field)</h2>
+<p>As in the case of the <span class="math inline">\(\vec{D}\)</span> field our aim here is o find an analogous field for the magnetic field in which we can eliminate the need to calculate the bound current densities in our calculations. So by analogy we write,</p>
+<p><span class="math inline">\(\displaystyle \vec{J}=\vec{J}_b+\vec{J}_{free}\)</span>.</p>
+<p>As in the case of <span class="math inline">\(\sigma_b\)</span> we can incorporate our definition of <span class="math inline">\(\vec{K}_b\)</span> into <span class="math inline">\(\vec{J}_b\)</span> as <span class="math inline">\(\vec{J}\)</span> goes to zero at the boundary. Now from Ampere’s law and considering all currents we have, by substituting <span class="math inline">\(\vec{J}_b=\nabla\times \vec{M}\)</span></p>
+<p><span class="math inline">\(\displaystyle \frac{1}{\mu_0}(\nabla\times\vec{B})=\vec{J}=\vec{J}_b+\vec{J}_{free}=\vec{J}_{free}+\nabla \times \vec{M}\)</span></p>
+<p>so that,</p>
+<p><span class="math inline">\(\displaystyle \nabla\times \left(\frac{1}{\mu_0}\vec{B}-\vec{M}\right)=\vec{J}_{free}\)</span>,</p>
+<p>from which we define,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \vec{H}=\left(\frac{1}{\mu_0}\vec{B}-\vec{M}\right)\;\;...13.6\)</span>
+</center>
+<p>This can be compared with the similar result we found for electric fields, <span class="math inline">\(\vec{D}=\epsilon_0\vec{E}+\vec{P}\)</span> and again shows, if we know the magnetization, we don’t need to calculate the bound current densities in order to calculate <span class="math inline">\(\vec{B}\)</span>.</p>
+<p>We now also have the equaivalent of Ampere’s law for <span class="math inline">\(\vec{H}\)</span>,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle \nabla\times\vec{H}=\vec{J}_{free}\;\;... 13.7\)</span>
+</center>
+<p>and its integral form</p>
+<p><span class="math inline">\(\displaystyle \oint\vec{H}\cdot d\vec{l}=I_{free}\)</span></p>
+<p>We can use <span class="math inline">\(\vec{H}\)</span> in an analagous way to the way we used <span class="math inline">\(\vec{D}\)</span> in electrostatics. In this case we can use Ampere’s law and the free currents to calculate <span class="math inline">\(\vec{H}\)</span>.</p>
+<p>As in the case of <span class="math inline">\(\vec{D}\)</span> there is a sting in the tail that can lead to errors in use. We need to remember that the curl does not uniquely define a vector field. We also need to know the divergence. If we take the divergence of 13.6 we get</p>
+<p><span class="math inline">\(\displaystyle \nabla\cdot\vec{H}=-\nabla\cdot\vec{M}\)</span></p>
+<p>as <span class="math inline">\(\nabla\cdot\vec{B}\)</span> is always zero. Hence the caveat is that we can always use Ampere’s law to calculate <span class="math inline">\(\vec{H}\)</span> provided <span class="math inline">\(\nabla\cdot\vec{M}=0\)</span> (c.f. we needed <span class="math inline">\(\nabla\times\vec{P}=0\)</span> for the case of the <span class="math inline">\(\vec{D}\)</span> field). Again this normally works in cases of high symmetry. If in doubt check the divergence of <span class="math inline">\(\vec{M}\)</span>.</p>
+</section>
+<section id="the-boundary-conditions-for-vech." class="level2">
+<h2 class="anchored" data-anchor-id="the-boundary-conditions-for-vech.">13.11 The boundary conditions for <span class="math inline">\(\vec{H}\)</span>.</h2>
+<p>As in the case of the <span class="math inline">\(\vec{D}\)</span> field, the boundary conditions for <span class="math inline">\(\vec{H}\)</span> are particularly useful for solving problems on the interface between tow materials. Again without proof I will state them here. The proofs may ve found in Griffiths 6.3.3.</p>
+###
+<center>
+<span class="math inline">\(H^{\perp}_{above}-H^{\perp}_{below}=-(M^{\perp}_{above}-M^{\perp}_{below})\;\;...13.8\)</span>
+</center>
+###
+<center>
+<span class="math inline">\(\vec{H}^{\parallel}_{above}-\vec{H}^{\parallel}_{below}=\vec{K}_f\times \hat{\vec{n}}\;\;...13.9\)</span>
+</center>
+</section>
+<section id="linear-magnetic-materials." class="level2">
+<h2 class="anchored" data-anchor-id="linear-magnetic-materials.">13.12 Linear magnetic materials.</h2>
+<p>As we did in the case of dielectric materials we can consider the simple case of induced mgnetization by a magnetic field. Logic might suggest that we should write <span class="math inline">\(\vec{M}\propto\vec{B}\)</span> as we did for <span class="math inline">\(\vec{D}\)</span> and <span class="math inline">\(\vec{E}\)</span>. However, convention has meant it is normally written as,</p>
+<p><span class="math inline">\(\displaystyle \vec{M}=\chi_m\vec{H}\)</span></p>
+<p>where <span class="math inline">\(\chi_m\)</span> is known as the magnetic susceptibility. Here we recognise it is possible to have two types of linear response - paramagnetic materials where <span class="math inline">\(\chi_m \gt 0\)</span> and diamagnetic materials where <span class="math inline">\(\chi_m \lt 0\)</span>. From 13.6. we than have,</p>
+<p><span class="math inline">\(\displaystyle \vec{H}=(\frac{\vec{B}}{\mu_0}-\vec{M})=(\frac{\vec{B}}{\mu_0}-\chi_m \vec{H})\)</span></p>
+<p>so</p>
+<p><span class="math inline">\(\displaystyle \vec{B}=\mu_0(1+\chi_m)\vec{H}\)</span></p>
+###
+<center>
+<span class="math inline">\(\vec{B}=\mu\vec{H}\;\;...13.10\)</span>
+</center>
+<p>where <span class="math inline">\(\mu=\mu_0(1+\chi_m)\)</span> and <span class="math inline">\(\mu_r=(1+\chi_m)\)</span> where <span class="math inline">\(\mu_r\)</span> is the relative permeability.</p>
+<p>We should note here that some common materials (Iron for instance) show a property called ferromagnetism. In this case the material can remain magnetized even when the external field is removed. In addition, at some point, the magnetic dipoles become pretty much oriented perfectly in line with the applied field. This is called saturation and the application of a higher magnetic field has little effect on the magnetization. This is often shown in a magnetization curve that also shows properties such as hysteresis. We don’t have time to discuss these much here but it is a rich area to explore and covered a little further in Griffiths if you wish to learn more.</p>
+</section>
+<section id="why-use-vech." class="level2">
+<h2 class="anchored" data-anchor-id="why-use-vech.">13.13 Why use <span class="math inline">\(\vec{H}\)</span>?.</h2>
+<p>In much the same way as we use <span class="math inline">\(\vec{D}\)</span>, <span class="math inline">\(\vec{H}\)</span> can be useful when discussing the boundaries between materials. However, it possibly easier to see why we might use it compared to <span class="math inline">\(\vec{D}\)</span>. In experiments/technology we will create fields by winding coils etc. and passing currents through them. These currents are the free currents that we refer to. Hence, it is very easy to calculate <span class="math inline">\(\vec{H}\)</span> and once we know the magnetization and especially in the case of linear materials, it is straightforward to calculate <span class="math inline">\(\vec{B}\)</span> in the material for the the applied field.</p>
+</section>
+<section id="maxwells-equations-in-matter." class="level2">
+<h2 class="anchored" data-anchor-id="maxwells-equations-in-matter.">13.14 Maxwell’s equations in matter.</h2>
+<p>We are almost there in our discussion of fields in matter but there remains the question about what happens in time dependent fields. So far, when we have talked about bound charges <span class="math inline">\(\rho_b\)</span> and bound currents <span class="math inline">\(\vec{J_b}\)</span> we have assumed static fields and used the results,</p>
+<p><span class="math inline">\(\displaystyle \rho_b=-\nabla\cdot\vec{P}\)</span></p>
+<p>and</p>
+<p><span class="math inline">\(\displaystyle \vec{J_b}=\nabla\times \vec{M}\)</span></p>
+<p>However, what happens if we have non-static fields? Well, any change in the lectric polarization would appear as a ‘flow’ of the bound charge (onto or off the surface for example). How might we imagine this? If we have a slab of polarised material, for example, something we represented as in section 13.3 we will have surface charges <span class="math inline">\(\pm \sigma_b\)</span> at each end. If <span class="math inline">\(\vec{P}\)</span> no increases (say by increasing the external field) there will be a consequent increase in the surface charge that appears as net current at the surface. We can write this as</p>
+<p><span class="math inline">\(\displaystyle dI=\frac{\partial \sigma_b}{\partial t} da_{\perp} = \frac{\partial P}{\partial t}da_{\perp}\)</span></p>
+<p>(remembering <span class="math inline">\(\sigma\; da = Q\)</span> and <span class="math inline">\(\sigma_B = \vec{P}\cdot\hat{\vec{n}}\)</span> at the surface).</p>
+<p>Now we should note that this has nothing to do with the free and bound currents that we discussed in the magnetization of materials. It is known as the polarisation current <span class="math inline">\(\vec{J}_p\)</span> and may be written more generally as,</p>
+<p><span class="math inline">\(\displaystyle \vec{J}_p=\frac{\partial \vec{P}}{\partial t}\)</span></p>
+<p>What about the continuity equations for <span class="math inline">\(\vec{J}_P\)</span>? Well we have,</p>
+<p><span class="math inline">\(\displaystyle \nabla \cdot \vec{J}_p=\nabla\cdot \frac{\partial \vec{P}}{\partial t}=\frac{\partial}{\partial t}(\nabla\cdot\vec{P})=-\frac{\partial \rho_b}{\partial t}\)</span></p>
+<p>i.e.</p>
+<p><span class="math inline">\(\displaystyle \nabla \cdot \vec{J}_p=-\frac{\partial \rho_b}{\partial t}\)</span> as we’d expect. It is also required if you think about it to ensure the conservation of the bound charge. So, as before, we still have</p>
+<p><span class="math inline">\(\displaystyle \rho=\rho_f+\rho+b=\rho_f-\nabla\cdot\vec{P}\)</span></p>
+<p>but we need to include the polarisation currnet in the total current density, i.e.,</p>
+<p><span class="math inline">\(\displaystyle \vec{J}=\vec{J_f}+\vec{J_b}+\vec{J_p}=\vec{J_f}+\nabla\times\vec{M}+\frac{\partial \vec{P}}{\partial t}\)</span></p>
+<p>Now if we take these results for <span class="math inline">\(\rho\)</span> and <span class="math inline">\(\vec{J}\)</span> and apply them to Maxwells equations in turn we get.</p>
+<p><span class="math inline">\(\\displaystyle nabla\cdot\vec{E}=\frac{1}{\epsilon_0}(\rho_f-\nabla\cdot\vec{P})\)</span> which gives,</p>
+<p><span class="math inline">\(\displaystyle\nabla\cdot\vec{D}=\rho_f\)</span></p>
+<p>as before.</p>
+<p>In <span class="math inline">\(\nabla\cdot\vec{B}=0\)</span> there is nothing to change so we still have</p>
+<p><span class="math inline">\(\nabla\cdot\vec{B}=0\)</span>.</p>
+<p>as before. Similarly in <span class="math inline">\(\nabla\times \vec{E}=-\partial \vec{B}/\partial t\)</span> there is also nothing to change. so</p>
+<p><span class="math inline">\(\displaystyle \nabla\times \vec{E}=-\frac{\partial \vec{B}}{\partial t}\)</span></p>
+<p>as before. However, including the polarisation current we now have,</p>
+<p><span class="math inline">\(\displaystyle \nabla\times \vec{B}=\mu_0(\vec{J}_f+\nabla\times\vec{M}+\frac{\partial \vec{P}}{\partial t})+\mu_0\epsilon_0\frac{\partial \vec{E}}{\partial t}\)</span></p>
+<p>Now, from our definition of <span class="math inline">\(\vec{H}\)</span> we have,</p>
+<p><span class="math inline">\(\displaystyle \nabla\times\vec{B}=\mu_0(\nabla\times \vec{H}+\nabla\times\vec{M})\)</span></p>
+<p>and from our definition of <span class="math inline">\(\vec{D}\)</span> we have,</p>
+<p><span class="math inline">\(\displaystyle \mu_0\frac{\partial}{\partial t}(\vec{P}+\epsilon_0\vec{E})=\mu_0\frac{\partial \vec{D}}{\partial t}\)</span></p>
+<p>Putting all this together we get,</p>
+<p><span class="math inline">\(\displaystyle \nabla\times\vec{H}=\vec{J_f}+\frac{\partial \vec{D}}{\partial t}\)</span></p>
+</section>
+<section id="maxwells-equations-in-matter.-1" class="level2">
+<h2 class="anchored" data-anchor-id="maxwells-equations-in-matter.-1">13.15 Maxwell’s equations in matter.</h2>
+<p>So, we are finally able to write our Maxwell’s equations taking into account the presence of matter.In summary these are,</p>
+#
+<center>
+<span class="math inline">\(\displaystyle \nabla\cdot\vec{D}=\rho_f\)</span>
+</center>
+#
+<center>
+<span class="math inline">\(\displaystyle \nabla\cdot\vec{B}=0\)</span>
+</center>
+#
+<center>
+<span class="math inline">\(\displaystyle \nabla\times\vec{E}=-\frac{\partial \vec{B}}{\partial t}\)</span>
+</center>
+#
+<center>
+<span class="math inline">\(\displaystyle \nabla\times\vec{H}=\vec{J_f}+\frac{\partial \vec{D}}{\partial t}\)</span>
+</center>
+<p>These are true even for non-linear materials. For linear materials we can express <span class="math inline">\(\vec{D}\)</span> and <span class="math inline">\(\vec{H}\)</span> in terms of the susceptibilities and the strength of the external field. This is the end point of this course. In future lectures, especially in the treatment of light as an electromagnetic phenomemon, you will explore them more deeply.</p>
+<p><a href="index.html">Return to index</a></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
