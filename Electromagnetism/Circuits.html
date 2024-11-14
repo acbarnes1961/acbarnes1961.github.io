@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome to the Electromagnetism course notes</title>
+<title>Electrical circuits - a pratical guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,16 +23,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/quarto.js"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="index_files/libs/quarto-html/anchor.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="Circuits_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Circuits_files/libs/quarto-html/quarto.js"></script>
+<script src="Circuits_files/libs/quarto-html/popper.min.js"></script>
+<script src="Circuits_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Circuits_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Circuits_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Circuits_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Circuits_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Circuits_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Circuits_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -74,7 +74,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome to the Electromagnetism course notes</h1>
+<h1 class="title">Electrical circuits - a pratical guide</h1>
 </div>
 
 
@@ -91,21 +91,94 @@ window.Quarto = {
 </header>
 
 
-<p><a href="Introduction.html">1. Introduction</a></p>
-<p><a href="ElectricFields.html">2. Electric Fields</a></p>
-<p><a href="ElectricPotential.html">3. Electric Potential</a></p>
-<p><a href="ElectrostaticsEnergy.html">4. Electrostatics, Boundary conditions and energy</a></p>
-<p><a href="Metals.html">5. Metals</a></p>
-<p><a href="CalcPotential.html">6. Calculating Potentials</a></p>
-<p><a href="MagneticFields.html">7. Magnetic Fields</a></p>
-<p><a href="MagneticFields-p2.html">8. Magnetic Fields - Biot-Savart law, Ampere’s law and vector potential </a></p>
-<p><a href="MagneticFields-pt3.html">9. Magnetic Fields - Boundary conditions and Magnetic dipoles </a></p>
-<p><a href="ElectroDynamics.html">10. Electrodynamics - Faradays’s Law </a></p>
-<p><a href="ElectroDynamics-pt2.html">11. Electrodynamics - Inductance </a></p>
-<p><a href="ElectroDynamics-pt3.html">12. Displacement current and Maxwell’s equations </a></p>
-<p><a href="FieldsInMatter.html">13. Fields in Matter - the Displacement field</a></p>
-<p><a href="FieldsInMatter-pt2.html">13. Fields in Matter - the auxiliary field <span class="math inline">\(\vec{H}\)</span> and Maxwell’s equations in matter</a></p>
-<p><a href="Circuits.html">A short note on circuits</a></p>
+<p>As we progressed through the course on electromagnetism we have come across ideas that have very pratical uses in electrical and electronic circuits. In particular, the potential difference, that we associate with charges and electric fields is typically referred to as the ‘voltage’ in electrical circuits. We typically ‘drive our electronics with steady voltages (d.c. - direct current!, e.g.&nbsp;batteries) or alternating voltages (a.c. - alternating current, e.g.&nbsp;mains electricity). Alternating voltages can be any form (sine, square, sawtooth or of arbitary) but once you’ve fully grasped the ideas of fourier series/transforms and Laplace transforms you can see that we can ’construct’ any waveform from alternating voltages of different frequencies. Hence, to understand how circuits react to sinusoidal wave forms is mostly what we need to caclulate. Hence, in the following we’ll consider sinusoidal voltages only.</p>
+<p>The other fundamental property we considered is current. Again our circuits are normally connected by wires through which the current can flow from the power source. We are particularly interested to find the relationship between the voltages and currents.</p>
+<section id="ohms-law---resistors" class="level2">
+<h2 class="anchored" data-anchor-id="ohms-law---resistors">1. Ohms Law - Resistors</h2>
+<p>You are all familar with Ohm’s law.</p>
+<p><span class="math inline">\(\displaystyle V=IR\)</span></p>
+<p>and the power delivered to the resistor as,</p>
+<p><span class="math inline">\(\displaystyle P=IV=\frac{V^2}{R}=I^2R\)</span></p>
+<p>If we apply an alternating sinusoidal voltage to our resistor <span class="math inline">\(v=V_0\sin(\omega t)\)</span> (note, lower case symbols for <span class="math inline">\(V\)</span>,<span class="math inline">\(I\)</span> etc are often used to denote alternating quantities) we see that the current in the resistor will be,</p>
+<p><span class="math inline">\(\displaystyle i=\frac{v}{R}=\frac{V_0 \sin(\omega t)}{R}\)</span></p>
+<p>where we note that the current in the resistor is in phase with the voltage applied. The power delivered is then taken by the root of the mean square of <span class="math inline">\(V^2/R\)</span> over the alternating cycle so,</p>
+<p><span class="math inline">\(\displaystyle P=\frac{V_{rms}^2}{R}\)</span>.</p>
+<p>For a sinusoidal voltage the mean square voltage is given by,</p>
+<p><span class="math inline">\(\displaystyle \frac{\int_0^T(V_0 \sin(\omega t))^2 dt}{\int_0^{T}dt}=\frac{V_0^2}{\sqrt{2}}\)</span></p>
+<p>where <span class="math inline">\(T=\frac{2\pi}{\omega}\)</span>.</p>
+<p>Partical Note. It is often assumed that <span class="math inline">\(V_{rms}\)</span> is always <span class="math inline">\(V_0/\sqrt{2}\)</span>. This is not true, for example, for a square wave <span class="math inline">\(V_{rms}=V_0\)</span>. Most common (and cheap) meters that claim they measure <span class="math inline">\(V_{rms}\)</span> for alternating voltages actually measure <span class="math inline">\(V_0\)</span> (i.e.&nbsp;the peak voltage) and divide this by <span class="math inline">\(\sqrt{2}\)</span> and display the result. Hence they are only correct when measureing sinusoidal voltages. Higher quality laboratory meters will usually measure ‘true’ r.m.s. voltages by properly averaging. Hence, when measuring a.c. voltages and currents its always a good idea to read the manual for the meter, or check the measurement to see if it is different when you apply a sinusoidal or square wave with the same <span class="math inline">\(V_0\)</span>.</p>
+<p>IMPORTANT RESULT. For a resistor the current is always in phase with the voltage.</p>
+</section>
+<section id="capacitors" class="level1">
+<h1>2 Capacitors</h1>
+<p>In the electrostatics part of the course we obtained the result</p>
+<p><span class="math inline">\(\displaystyle Q=CV\)</span></p>
+<p>for a capacitor. How does a capacitor react in a circuit. What is the relationship between the voltage and the current? Well, in the steady state, with a constant voltage, no current will be flowing (the charge on the capacitor stays constant. What happens wif we apply an alternating voltage as above? Well</p>
+<p><span class="math inline">\(\displaystyle Q=C\;V_0 \sin (\omega t)\)</span>,</p>
+<p>but <span class="math inline">\(i=dQ/dt\)</span> so we have,</p>
+<p><span class="math inline">\(\displaystyle i =\frac{dq}{dt}=C\;\omega\;V_0 \cos(\omega t)\)</span>,</p>
+<p>or</p>
+<p><span class="math inline">\(\displaystyle V_0\cos(\omega t) = \frac{i}{\omega C}\)</span></p>
+<p>so</p>
+<p><span class="math inline">\(\displaystyle \frac{1}{\omega C}\)</span></p>
+<p>has the units of <span class="math inline">\(\Omega\)</span> and ‘looks’ like a kind of resitor in the circuit. The only difference is that the current is 90<span class="math inline">\(^o\)</span> out of phase with the applied voltage. In fact you can see that the current ‘leads’ the voltage. The quantity <span class="math inline">\(1/(\omega\; C)\)</span> is known as the reactance (<span class="math inline">\(\chi_c\)</span>) of the capacitor. You can see that as the frequency gets higher the reactance of the capacitor becomes smaller and the current becomes higher. Therefore, capacitors conduct a.c. currents better at high frequencies. If you have apply a constant voltage <span class="math inline">\(\omega = 0\)</span> no current flows - you have the steady state condition.</p>
+<p>IMPORTANT RESULT. For a perfect capacitor and an a.c. voltage the current always leads the voltage by 90<span class="math inline">\(^o\)</span>. <span class="math inline">\(|v|=\chi_c |i|\)</span> where <span class="math inline">\(|v|\)</span> and <span class="math inline">\(|i|\)</span> are the magnitudes of the voltage and currents.</p>
+</section>
+<section id="inductors" class="level1">
+<h1>3. Inductors</h1>
+<p>In the magnetostatics part of the course we obtained the result,</p>
+<p><span class="math inline">\(\displaystyle V =-L\;\frac{dI}{dt}\)</span>,</p>
+<p>When we look at the applied voltage, this becomes,</p>
+<p><span class="math inline">\(\displaystyle V=-L\frac{dI}{dt}\)</span>.</p>
+<p>If we apply an alternating voltage</p>
+<p><span class="math inline">\(\displaystyle V_0 \sin(\omega t) = -L\frac{dI}{dt}\)</span>,</p>
+<p>to our inductor? In this case we need to integrate to get the current so</p>
+<p><span class="math inline">\(\displaystyle i =  -\int \frac{(V_0 \sin(\omega t))}{L}dt\)</span></p>
+<p>or</p>
+<p><span class="math inline">\(\displaystyle i =  -\frac{V_0\;cos(\omega t)}{\omega\;L}\)</span>.</p>
+<p>Hence,</p>
+<p><span class="math inline">\(\displaystyle V_0\cos(\omega t) = -\omega\;L\;i\)</span>.</p>
+<p>So in this case we see that <span class="math inline">\(\omega L\)</span> has the units of resistance and is called the inductive reactance (<span class="math inline">\(\chi_L\)</span>). In addition we now see that, due to the minus sign, the current lags the voltage on the inductor. We now have the opposite of our capacitor, as the frequency increases, the current in the inductor increases. It’s hard to push current through an inductor at high frequency.</p>
+<p>IMPORTANT RESULT. For a perfect inductor and an a.c. voltage the current always lags the voltage by 90<span class="math inline">\(^o\)</span> wher<span class="math inline">\(|v|=\chi_L|i|\)</span>n are the magnitudes of the voltage and currents.</p>
+</section>
+<section id="resistors-capacitors-and-inductors." class="level1">
+<h1>4. Resistors, Capacitors and Inductors.</h1>
+<p>How do we work out the alternating currents and voltages for combinations of capacitors, inductors and resistors? In this section we’ll summarize the methods - it will rely on the knowledge you have gained about phasors, Argand diagrams annd complex numbers. If I have a circuit composed of multiple resistors then we can see that the phase difference between the voltage and current through them is always zero. If you apply Kirchoff’s two rules (you might look these up if you haven’t met them before (one of them is a restatement of <span class="math inline">\(\oint \vec{E}.d \vec{l} = 0\)</span> that you’ve already seen and the other is a restatement of the continuity equation)) you end up with the standard results that you use for finding the resistance of combinations of resistors: i.e resistors in series,</p>
+<p><span class="math inline">\(\displaystyle R=R_1+R_2+R_3+ ...\)</span>,</p>
+<p>in parallel,</p>
+<p><span class="math inline">\(\displaystyle \frac{1}{R}=\frac{1}{R_1}+\frac{1}{R_2}+\frac{1}{R_3}+ ...\)</span>.</p>
+<p>We’ve seen that <span class="math inline">\(\chi _C\)</span> and <span class="math inline">\(\chi _L\)</span> have units of resistance but cause a phase difference between the voltage and current. Is there a way in which we can combine <span class="math inline">\(R\)</span>,<span class="math inline">\(\chi_C\)</span> and <span class="math inline">\(\chi_L\)</span> together that enables us to work out the relationship, magnitude AND phase, between the voltage and current in circuits with combinations of <span class="math inline">\(R\)</span>,<span class="math inline">\(C\)</span> and <span class="math inline">\(L\)</span>. For any circuit you could go back to the results in 1,2 and 3 and calculate piece by piece, using double angle trignometric formulae all the way to find say <span class="math inline">\(i\)</span> for a give <span class="math inline">\(v\)</span>. This would be very tedious and likely very error prone. However, in your maths course you have seen the way in which you can represent a phase relationship between two quantities (with the same units) - complex numbers. We can then represent the way we add/divide these numbers as phasors on an Argand diagram. You might wish to revisit your notes on complex numbers if you can’t remember this.</p>
+<p>So, the short answer to our question is we can represent our resistances and reactances as complex numbers. We call the combination of resitance and reactance the impedance of our circuit and we give it the symbol <span class="math inline">\(Z\)</span>. Hence as complex numbers we write for resistors,</p>
+<p><span class="math inline">\(\displaystyle Z_R=R\)</span>,</p>
+<p>for inductors we write,</p>
+<p><span class="math inline">\(\displaystyle Z_L=j\omega\;L\)</span>,</p>
+<p>and for capacitors,</p>
+<p><span class="math inline">\(\displaystyle Z_C=\frac{j}{ \omega\; C}\)</span></p>
+<p>where we have used <span class="math inline">\(j\)</span> to represent <span class="math inline">\(\sqrt{-1}\)</span>. if we used <span class="math inline">\(i\)</span> we’d get confused with the current <span class="math inline">\(i\)</span>!</p>
+<p>Now, if we write Ohm’s law for a resistor we have,</p>
+<p><span class="math inline">\(\displaystyle v=Z_R i= iR\)</span></p>
+<p>as before. On an Argand diagram this would be a phasor point along the x-axis; the voltage and current are in phase. For an inductor we’d write,</p>
+<p><span class="math inline">\(\displaystyle v= j\;\omega L \;i\)</span>.</p>
+<p>On an Argand diagram this would be a phasor pointing along the y-axis indicating that the voltage leads the current by 90<span class="math inline">\(^o\)</span>. For a capacitor, we have</p>
+<p><span class="math inline">\(\displaystyle v=\frac{-j}{\omega\;C}i\)</span>.</p>
+<p>On an Argand diagram this would be a phasor pointing along the negative direction of the y-axis; the voltage lags the current. Applying the same Kirchoff’s rules for alternating voltages and current we can arrive at exactly the same results as we did for pure resistances but substituting <span class="math inline">\(Z\)</span>, a complex number for <span class="math inline">\(R\)</span>. We combine these impedances together using the same rules as we did for pure resistances, but use <span class="math inline">\(Z\)</span> and do all our calculations with complex numbers. i.e.&nbsp;</p>
+<p><span class="math inline">\(\displaystyle Z = Z_1+Z_2+Z_3 ...\)</span></p>
+<p>and</p>
+<p><span class="math inline">\(\displaystyle \frac{1}{Z}=\frac{1}{Z_1}+\frac{1}{Z_2}+\frac{1}{Z_3}+ ...\)</span>.</p>
+<p>Once we’ve found the total impedance of the circuit (I can break the calculation down into simple steps of calculating series and parallel ‘sub impedances’) we can write</p>
+#
+<center>
+<span class="math inline">\(v=iZ\)</span>
+</center>
+<p>i.e.&nbsp;writing Ohm’s law but with a complex number rather than <span class="math inline">\(R\)</span>.</p>
+<p>we can then work out the magnitude of the voltage as</p>
+<p><span class="math inline">\(\displaystyle v=i|Z|\)</span></p>
+<p>and the phase between them as</p>
+<p><span class="math inline">\(\displaystyle \phi = \arctan \left(\frac{Z_{imag}}{Z_{real}}\right)\)</span></p>
+<p>Note. As the reactances depend on <span class="math inline">\(\omega\)</span> we will find our calculations of <span class="math inline">\(Z\)</span> should depend on <span class="math inline">\(\omega\)</span> so it is better remembered as <span class="math inline">\(Z(\omega)\)</span>.</p>
+<p>Exercise. A resonant circuit consists of a resistor (R), perfect capacitor (capacitance, C) and perfect inductor (inductance, L) connected in series. They are connected to an a.c. voltage source of frequency <span class="math inline">\(\omega\)</span>. At what frequency does the circuit resonate (i.e.&nbsp;where <span class="math inline">\(i\)</span> reaches a minimum or maximum value)? Is the current a maximum or minimum at this point?</p>
+<p><a href="index.html">Return to Index</a></p>
+</section>
 
 </main>
 <!-- /main column -->
