@@ -204,12 +204,12 @@ window.Quarto = {
 <p><span class="math inline">\(\displaystyle \nabla \cdot \vec{J}_p=\nabla\cdot \frac{\partial \vec{P}}{\partial t}=\frac{\partial}{\partial t}(\nabla\cdot\vec{P})=-\frac{\partial \rho_b}{\partial t}\)</span></p>
 <p>i.e.</p>
 <p><span class="math inline">\(\displaystyle \nabla \cdot \vec{J}_p=-\frac{\partial \rho_b}{\partial t}\)</span> as we’d expect. It is also required if you think about it to ensure the conservation of the bound charge. So, as before, we still have</p>
-<p><span class="math inline">\(\displaystyle \rho=\rho_f+\rho+b=\rho_f-\nabla\cdot\vec{P}\)</span></p>
+<p><span class="math inline">\(\displaystyle \rho=\rho_f+\rho_b=\rho_f-\nabla\cdot\vec{P}\)</span></p>
 <p>but we need to include the polarisation currnet in the total current density, i.e.,</p>
 <p><span class="math inline">\(\displaystyle \vec{J}=\vec{J_f}+\vec{J_b}+\vec{J_p}=\vec{J_f}+\nabla\times\vec{M}+\frac{\partial \vec{P}}{\partial t}\)</span></p>
 <p>Now if we take these results for <span class="math inline">\(\rho\)</span> and <span class="math inline">\(\vec{J}\)</span> and apply them to Maxwells equations in turn we get.</p>
 <p><span class="math inline">\(\\displaystyle nabla\cdot\vec{E}=\frac{1}{\epsilon_0}(\rho_f-\nabla\cdot\vec{P})\)</span> which gives,</p>
-<p><span class="math inline">\(\displaystyle\nabla\cdot\vec{D}=\rho_f\)</span></p>
+<p><span class="math inline">\(\displaystyle \nabla\cdot\vec{D}=\rho_f\)</span></p>
 <p>as before.</p>
 <p>In <span class="math inline">\(\nabla\cdot\vec{B}=0\)</span> there is nothing to change so we still have</p>
 <p><span class="math inline">\(\nabla\cdot\vec{B}=0\)</span>.</p>
@@ -244,6 +244,25 @@ window.Quarto = {
 <span class="math inline">\(\displaystyle \nabla\times\vec{H}=\vec{J_f}+\frac{\partial \vec{D}}{\partial t}\)</span>
 </center>
 <p>These are true even for non-linear materials. For linear materials we can express <span class="math inline">\(\vec{D}\)</span> and <span class="math inline">\(\vec{H}\)</span> in terms of the susceptibilities and the strength of the external field. This is the end point of this course. In future lectures, especially in the treatment of light as an electromagnetic phenomemon, you will explore them more deeply.</p>
+<p>When working with these equations the boundary conditions required for the fields are relatively straight forward ro write but it turns out that these are most easily remembered and used using all four fields (<span class="math inline">\(\vec{E}\)</span>,<span class="math inline">\(\vec{D}\)</span>,<span class="math inline">\(\vec{B}\)</span> and <span class="math inline">\(\vec{H}\)</span>). In summary they are,</p>
+###
+<center>
+<span class="math inline">\(\displaystyle D_1^{\perp}-D_2^{\perp}=\sigma_f\)</span>
+</center>
+###
+<center>
+<span class="math inline">\(\displaystyle \displaystyle B_1^{\perp}-B_2^{\perp}=0\)</span>
+</center>
+###
+<center>
+<span class="math inline">\(\vec{E}_1^{\parallel}-\vec{E}_2^{\parallel} = 0\)</span>
+</center>
+###
+<center>
+<span class="math inline">\(\vec{H}_1^{\parallel}-\vec{H}_2^{\parallel} = \vec{K_f}\times \hat{\vec{n}}\)</span>
+</center>
+<p>In problems you often see questions referring to the boundaries when there are no free charges and currents present (at the boundary). In this case all of these relations become equal to zero. Now it is easy to see that in the absence of free charges the perpendicular component of <span class="math inline">\(\vec{D}\)</span> is continuous - you often see this used in solution of problems with dielectrics. You also see that the perpendicular component of the <span class="math inline">\(\vec{B}\)</span> field is continuous which you again often see used to solve problems (the magnetic field in a small cap of a toroidal solenoid is a common example).</p>
+<p>This concludes the key part of the lectures. Maxwell’s equations in this form and the Lorentz force law are the starting point for the study of more advanced electromagnetic phenomena.</p>
 <p><a href="index.html">Return to index</a></p>
 </section>
 
