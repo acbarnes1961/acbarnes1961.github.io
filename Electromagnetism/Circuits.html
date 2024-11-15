@@ -128,12 +128,13 @@ window.Quarto = {
 <h1>3. Inductors</h1>
 <p>In the magnetostatics part of the course we obtained the result,</p>
 <p><span class="math inline">\(\displaystyle V =-L\;\frac{dI}{dt}\)</span>,</p>
+<p>where <span class="math inline">\(V\)</span> is the back e.m.f.</p>
 <p>When we look at the applied voltage, this becomes,</p>
-<p><span class="math inline">\(\displaystyle V=-L\frac{dI}{dt}\)</span>.</p>
-<p>If we apply an alternating voltage</p>
-<p><span class="math inline">\(\displaystyle V_0 \sin(\omega t) = -L\frac{dI}{dt}\)</span>,</p>
+<p><span class="math inline">\(\displaystyle V=L\frac{dI}{dt}\)</span>.</p>
+<p>What happens, if we apply an alternating voltage</p>
+<p><span class="math inline">\(\displaystyle V_0 \sin(\omega t) = L\frac{dI}{dt}\)</span>,</p>
 <p>to our inductor? In this case we need to integrate to get the current so</p>
-<p><span class="math inline">\(\displaystyle i =  -\int \frac{(V_0 \sin(\omega t))}{L}dt\)</span></p>
+<p><span class="math inline">\(\displaystyle i =  \int \frac{(V_0 \sin(\omega t))}{L}dt\)</span></p>
 <p>or</p>
 <p><span class="math inline">\(\displaystyle i =  -\frac{V_0\;cos(\omega t)}{\omega\;L}\)</span>.</p>
 <p>Hence,</p>
@@ -153,7 +154,7 @@ window.Quarto = {
 <p>for inductors we write,</p>
 <p><span class="math inline">\(\displaystyle Z_L=j\omega\;L\)</span>,</p>
 <p>and for capacitors,</p>
-<p><span class="math inline">\(\displaystyle Z_C=\frac{j}{ \omega\; C}\)</span></p>
+<p><span class="math inline">\(\displaystyle Z_C=-\frac{j}{ \omega\; C}\)</span></p>
 <p>where we have used <span class="math inline">\(j\)</span> to represent <span class="math inline">\(\sqrt{-1}\)</span>. if we used <span class="math inline">\(i\)</span> we’d get confused with the current <span class="math inline">\(i\)</span>!</p>
 <p>Now, if we write Ohm’s law for a resistor we have,</p>
 <p><span class="math inline">\(\displaystyle v=Z_R i= iR\)</span></p>
